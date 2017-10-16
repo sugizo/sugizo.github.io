@@ -1,0 +1,156 @@
+# Site settings
+baseurl = "/"
+languageCode = "en-us"
+title = "Stifix"
+theme = "hugo-highlights-theme"
+
+# Enter your tracking code to enable Google analytics
+googleAnalytics = ""
+
+[params]
+
+  # You can use Markdown for urls [text](//domain.tld/source)
+  #
+  # All icons using Fontawesom's icon font. Look at fortawesome.github.io/Font-Awesome/icons/
+  # for more icons.
+
+  # To provide more meta data for search engings feel free to add a few informations.
+  # This lines will be inserted as meta tags.
+  name = "Stifan Kristi"
+  description = "Stifix Company Profile Website"
+
+  keywords = "Stifix, IT, IT Services, IT Solutions, IT Security, IT Monitoring, IT Development, IT Maintenance, IT Configuration, IT Support, IT Installation, IT Upgrade, Linux, Unix, Windows, Virtualization, Cloud Computing, Mobile, Web Development"
+  robots = "all"
+  content-type = "text/html;charset=UTF-8"
+  og[title = "Stifix"
+
+  # For a static site it's not possible to provide a contact form. The contact form uses
+  # www.formspree.io as a proxy. The form makes a Post request to their servers to send an email
+  # Visitors can send up to a 1000 emails each month
+  #
+  # How to setup formspree
+  #
+  # - set your email address under 'email' below
+  # - upload the generated site to your server
+  # - send a dummy email to yourself to confirm your account
+  # - click the confirmation link in the email from www.formspree.io
+  # - That's all. Enjoy mailing!
+  email = "stifan.kristi@stifix.com"
+
+  # If this param is set to true, every section gets an own background image (located at static/images)
+  # to change the image you could use the param picture on every section.
+  # If it's disabled you could change the background to overwrite the bg.png and overlay.png to set the background.
+  backgroundpersection = true
+
+  # Hero Section
+  [params.hero]
+    title = "Stifix"
+    description = "IT Services and Solutions"
+    buttontext = "begin"
+
+  # about section
+  [params.about]
+    enable = true
+    title = "Who We Are"
+    description = "We set out to giving IT services and solutions since 2000, start to those around us, and we keep growing and fruitful to help more people by solving their IT problems. We provide comprehensive IT services and solutions to our clients based on their demands with effective, efficient and economic solutions."
+    buttontext = "next"
+    # the picture is storead at static/images/
+    picture = "pic01.jpg"
+
+  # skill section
+  [params.skill_list]
+    enable = true
+    title = "What We Do"
+    description = "Our services and solutions includes Installation, Configuration, Upgrades, Support, Training, Monitoring, Maintenance, and Development. We deliver according to your request."
+    buttontext = "next"
+    # the picture is storead at static/images/
+    picture = "pic02.jpg"
+
+    [[params.skills]]
+      #icon = "fa-camera-retro"
+      title = "Linux"
+
+    [[params.skills]]
+      #icon = "fa-pencil"
+      title = "Unix"
+
+    [[params.skills]]
+      #icon = "fa-code"
+      title = "Windows"
+
+    [[params.skills]]
+      #icon = "fa-coffee"
+      title = "Virtualization"
+
+    [[params.skills]]
+      #icon = "fa-camera-retro"
+      title = "Cloud Computing"
+
+    [[params.skills]]
+      #icon = "fa-pencil"
+      title = "Mobile Device"
+
+  # infos section
+  [params.infos]
+    enable = true
+    title = "Why Us"
+    description = "Experienced in IT Industry for a long time and always up to date with the recent technology, and the most important thing, we care to you by solving your IT problems."
+    # the picture is storead at static/images/
+    picture = "pic03.jpg"
+
+  # footer section
+  # this section includes
+  #
+  # - the contact form
+  # - social icons
+  #
+  # It's possible to disable the whole footer or disable only social icons or contact form
+
+  [params.footer]
+    enable = true
+    title = "Tell us your IT Problem"
+
+    # contact form
+    [params.footer.contact]
+      enable = true
+
+    [params.footer.contact.form]
+      name = "Name"
+      email = "Your Email"
+      message = "Your Message"
+      buttontext = "send message"
+
+    # social icons
+    [params.footer.social_list]
+      enable = true
+
+      #[[params.footer.social]]
+        #title = "Twitter"
+        #icon = "fa-twitter"
+        #link = "#"
+
+      #[[params.footer.social]]
+        #title = "Facebook"
+        #icon = "fa-facebook"
+        #link = "#"
+
+      #[[params.footer.social]]
+        #title = "Instagramm"
+        #icon = "fa-instagram"
+        #link = "#"
+
+      #[[params.footer.social]]
+        #title = "Dribbble"
+        #icon = "fa-dribbble"
+        #link = "#"
+
+      #[[params.footer.social]]
+        #title = "Email"
+        #icon = "fa-envelope"
+        #link = "#"
+
+    # copyright
+    #[params.footer.copyright.notice]
+
+      [[params.footer.copyright.notice]]
+        text = "© 2017 [stifix](/). All rights reserved."
