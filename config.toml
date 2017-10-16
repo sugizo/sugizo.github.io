@@ -19,11 +19,6 @@ googleAnalytics = ""
   name = "Stifan Kristi"
   description = "Stifix Company Profile Website"
 
-  keywords = "Stifix, IT, IT Services, IT Solutions, IT Security, IT Monitoring, IT Development, IT Maintenance, IT Configuration, IT Support, IT Installation, IT Upgrade, Linux, Unix, Windows, Virtualization, Cloud Computing, Mobile, Web Development"
-  robots = "all"
-  content-type = "text/html;charset=UTF-8"
-  og[title = "Stifix"
-
   # For a static site it's not possible to provide a contact form. The contact form uses
   # www.formspree.io as a proxy. The form makes a Post request to their servers to send an email
   # Visitors can send up to a 1000 emails each month
