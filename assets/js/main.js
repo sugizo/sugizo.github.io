@@ -1,11 +1,237 @@
-(function($){skel.breakpoints({large:'(max-width: 1680px)',medium:'(max-width: 980px)',small:'(max-width: 736px)',xsmall:'(max-width: 480px)'});$(function(){var $window=$(window),$body=$('body'),$html=$('html');$html.addClass('is-loading');$window.on('load',function(){window.setTimeout(function(){$html.removeClass('is-loading');},0);});if(skel.vars.mobile){var $wrapper;$body.wrapInner('<div id="wrapper" />');$wrapper=$('#wrapper');if(skel.vars.os=='ios')
-$wrapper.css('margin-top',-25).css('padding-bottom',25);$wrapper.on('scroll',function(){$window.trigger('scroll');});$window.on('load.hl_scrolly',function(){$('.scrolly').scrolly({speed:1500,parent:$wrapper,pollOnce:true});$window.off('load.hl_scrolly');});$html.addClass('is-touch');}
-else{$('.scrolly').scrolly({speed:1500});}
-$('form').placeholder();skel.on('+medium -medium',function(){$.prioritize('.important\\28 medium\\29',skel.breakpoint('medium').active);});var $header=$('#header'),$headerTitle=$header.find('header'),$headerContainer=$header.find('.container');if(!skel.vars.mobile){$window.on('load.hl_headerTitle',function(){skel.on('-medium !medium',function(){$headerTitle.css('position','fixed').css('height','auto').css('top','50%').css('left','0').css('width','100%').css('margin-top',($headerTitle.outerHeight()/-2));});skel.on('+medium',function(){$headerTitle.css('position','').css('height','').css('top','').css('left','').css('width','').css('margin-top','');});$window.off('load.hl_headerTitle');});}
-skel.on('-small !small',function(){$header.scrollex({terminate:function(){$headerTitle.css('opacity','');},scroll:function(progress){if(progress>0.5)
-x=1-progress;else
-x=progress;$headerTitle.css('opacity',Math.max(0,Math.min(1,x*2)));}});});skel.on('+small',function(){$header.unscrollex();});$('.main').each(function(){var $this=$(this),$primaryImg=$this.find('.image.primary > img'),$bg,options;if($primaryImg.length==0)
-return;if(skel.vars.IEVersion<9){$this.css('background-image','url("'+$primaryImg.attr('src')+'")').css('-ms-behavior','url("assets/css/ie/backgroundsize.min.htc")');return;}
-$bg=$('<div class="main-bg" id="'+$this.attr('id')+'-bg"></div>').css('background-image',('url("assets/css/images/overlay.png"), url("'+$primaryImg.attr('src')+'")')).appendTo($body);options={mode:'middle',delay:200,top:'-10vh',bottom:'-10vh'};if(skel.canUse('transition')){options.init=function(){$bg.removeClass('active');};options.enter=function(){$bg.addClass('active');};options.leave=function(){$bg.removeClass('active');};}
-else{$bg.css('opacity',1).hide();options.init=function(){$bg.fadeOut(0);};options.enter=function(){$bg.fadeIn(400);};options.leave=function(){$bg.fadeOut(400);};}
-$this.scrollex(options);});});})(jQuery);
+/*
+	Big Picture by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+(function($) {
+
+	skel.breakpoints({
+		xxlarge: '(max-width: 1920px)',
+		xlarge: '(max-width: 1680px)',
+		large: '(max-width: 1280px)',
+		medium: '(max-width: 1000px)',
+		small: '(max-width: 736px)',
+		xsmall: '(max-width: 480px)',
+	});
+
+	$(function() {
+
+		var	$window = $(window),
+			$body = $('body'),
+			$header = $('#header'),
+			$all = $body.add($header);
+
+		// Disable animations/transitions until the page has loaded.
+			$body.addClass('is-loading');
+
+			$window.on('load', function() {
+				window.setTimeout(function() {
+					$body.removeClass('is-loading');
+				}, 0);
+			});
+
+		// Touch mode.
+			skel.on('change', function() {
+
+				if (skel.vars.mobile || skel.breakpoint('small').active)
+					$body.addClass('is-touch');
+				else
+					$body.removeClass('is-touch');
+
+			});
+
+		// Fix: Placeholder polyfill.
+			$('form').placeholder();
+
+		// Fix: IE flexbox fix.
+			if (skel.vars.IEVersion <= 11
+			&&	skel.vars.IEVersion >= 10) {
+
+				var $main = $('.main.fullscreen'),
+					IEResizeTimeout;
+
+				$window
+					.on('resize.ie-flexbox-fix', function() {
+
+						clearTimeout(IEResizeTimeout);
+
+						IEResizeTimeout = setTimeout(function() {
+
+							var wh = $window.height();
+
+							$main.each(function() {
+
+								var $this = $(this);
+
+								$this.css('height', '');
+
+								if ($this.height() <= wh)
+									$this.css('height', (wh - 50) + 'px');
+
+							});
+
+						});
+
+					})
+					.triggerHandler('resize.ie-flexbox-fix');
+
+			}
+
+		// Prioritize "important" elements on small.
+			skel.on('+small -small', function() {
+				$.prioritize(
+					'.important\\28 small\\29',
+					skel.breakpoint('small').active
+				);
+			});
+
+		// Gallery.
+			$window.on('load', function() {
+
+				var $gallery = $('.gallery');
+
+				$gallery.poptrox({
+					baseZIndex: 10001,
+					useBodyOverflow: false,
+					usePopupEasyClose: false,
+					overlayColor: '#1f2328',
+					overlayOpacity: 0.65,
+					usePopupDefaultStyling: false,
+					usePopupCaption: true,
+					popupLoaderText: '',
+					windowMargin: 50,
+					usePopupNav: true
+				});
+
+				// Hack: Adjust margins when 'small' activates.
+					skel
+						.on('-small', function() {
+							$gallery.each(function() {
+								$(this)[0]._poptrox.windowMargin = 50;
+							});
+						})
+						.on('+small', function() {
+							$gallery.each(function() {
+								$(this)[0]._poptrox.windowMargin = 5;
+							});
+						});
+
+			});
+
+		// Section transitions.
+			if (skel.canUse('transition')) {
+
+				var on = function() {
+
+					// Galleries.
+						$('.gallery')
+							.scrollex({
+								top:		'30vh',
+								bottom:		'30vh',
+								delay:		50,
+								initialize:	function() { $(this).addClass('inactive'); },
+								terminate:	function() { $(this).removeClass('inactive'); },
+								enter:		function() { $(this).removeClass('inactive'); },
+								leave:		function() { $(this).addClass('inactive'); }
+							});
+
+					// Generic sections.
+						$('.main.style1')
+							.scrollex({
+								mode:		'middle',
+								delay:		100,
+								initialize:	function() { $(this).addClass('inactive'); },
+								terminate:	function() { $(this).removeClass('inactive'); },
+								enter:		function() { $(this).removeClass('inactive'); },
+								leave:		function() { $(this).addClass('inactive'); }
+							});
+
+						$('.main.style2')
+							.scrollex({
+								mode:		'middle',
+								delay:		100,
+								initialize:	function() { $(this).addClass('inactive'); },
+								terminate:	function() { $(this).removeClass('inactive'); },
+								enter:		function() { $(this).removeClass('inactive'); },
+								leave:		function() { $(this).addClass('inactive'); }
+							});
+
+					// Contact.
+						$('#contact')
+							.scrollex({
+								top:		'50%',
+								delay:		50,
+								initialize:	function() { $(this).addClass('inactive'); },
+								terminate:	function() { $(this).removeClass('inactive'); },
+								enter:		function() { $(this).removeClass('inactive'); },
+								leave:		function() { $(this).addClass('inactive'); }
+							});
+
+				};
+
+				var off = function() {
+
+					// Galleries.
+						$('.gallery')
+							.unscrollex();
+
+					// Generic sections.
+						$('.main.style1')
+							.unscrollex();
+
+						$('.main.style2')
+							.unscrollex();
+
+					// Contact.
+						$('#contact')
+							.unscrollex();
+
+				};
+
+				skel.on('change', function() {
+
+					if (skel.breakpoint('small').active)
+						(off)();
+					else
+						(on)();
+
+				});
+
+			}
+
+		// Events.
+			var resizeTimeout, resizeScrollTimeout;
+
+			$window
+				.resize(function() {
+
+					// Disable animations/transitions.
+						$body.addClass('is-resizing');
+
+					window.clearTimeout(resizeTimeout);
+
+					resizeTimeout = window.setTimeout(function() {
+
+						// Update scrolly links.
+							$('a[href^="#"]').scrolly({
+								speed: 1500,
+								offset: $header.outerHeight() - 1
+							});
+
+						// Re-enable animations/transitions.
+							window.setTimeout(function() {
+								$body.removeClass('is-resizing');
+								$window.trigger('scroll');
+							}, 0);
+
+					}, 100);
+
+				})
+				.load(function() {
+					$window.trigger('resize');
+				});
+
+	});
+
+})(jQuery);
