@@ -4,7 +4,6 @@
 
 # Create File
 	cd sugizo.github.io
-	echo "Hello World" > index.html
 
 # Add, commit, and push your changes
 	git add --all
