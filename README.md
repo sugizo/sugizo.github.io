@@ -1,5 +1,5 @@
 # Clone the repository
-	cd ~/git
+	cd ~/git/github
 	git clone https://github.com/sugizo/sugizo.github.io
 
 # Create File
