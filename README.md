@@ -3,7 +3,7 @@
 	git clone https://github.com/sugizo/sugizo.github.io
 
 # Create File
-	cd sugizo.github.io
+	cd ~/git/github/sugizo.github.io
 
 # Add, commit, and push your changes
 	git add --all
