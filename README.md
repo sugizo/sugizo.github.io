@@ -7,5 +7,8 @@
 
 # Add, commit, and push your changes
 	git add --all
-	git commit -m "Initial commit"
+	git commit -m "v0.0"
+	git tag v0.0
+	git tag
 	git push -u origin master
+	git push origin --tags
