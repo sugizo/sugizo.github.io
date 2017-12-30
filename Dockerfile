@@ -2,13 +2,13 @@ FROM ubuntu:latest
 
 #MAINTAINER Stifan Kristi <steve.van.christie@gmail.com>
 
+COPY . /site/
 WORKDIR	/
 
 RUN	apt update && \
 	apt install -y npm nodejs-legacy && \
-	npm install harp -g && \
-	harp init site 
+	npm list harp || npm install harp -g
 
-EXPOSE	9000
+EXPOSE 9000
 
 CMD harp server site
