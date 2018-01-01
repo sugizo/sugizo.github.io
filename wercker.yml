@@ -7,4 +7,4 @@ build:
         code: npm list harp || npm install harp
     - script:
         name: compile
-        code: harp compile
+        code: ./node_modules/.bin/harp compile
