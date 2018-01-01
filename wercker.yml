@@ -4,7 +4,7 @@ build:
     #- npm-install
     - script:
         name: install
-        code: npm list harp || npm install
+        code: npm install
     - script:
-        name: compile
-        code: npm run compile
+        name: generate
+        code: npm run generate
