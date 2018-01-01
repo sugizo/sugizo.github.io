@@ -1,9 +1,11 @@
-box: php
+box: ubuntu
 build:
   steps:
     - script:
         name: install composer
-        code: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+        code: |
+          apt update
+          apt install -y composer unzip
     - script:
         name: install jigsaw
         code: composer install
