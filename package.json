@@ -3,25 +3,21 @@
   "version": "0.0.0",
   "description": "Stifix Company Profile Website",
   "scripts": {
-    "start": "hexo server",
-    "generate": "hexo generate"
+    "start": "roots watch",
+    "compile": "roots compile"
   },
   "author": "Stifan Kristi",
-  "private": true,
-  "hexo": {
-    "version": "3.4.4"
-  },
   "dependencies": {
-    "hexo": "latest",
-    "hexo-generator-archive": "latest",
-    "hexo-generator-category": "latest",
-    "hexo-generator-index": "latest",
-    "hexo-generator-tag": "latest",
-    "hexo-renderer-ejs": "latest",
-    "hexo-renderer-jade": "latest",
-    "hexo-renderer-marked": "latest",
-    "hexo-renderer-pug": "latest",
-    "hexo-renderer-stylus": "latest",
-    "hexo-server": "latest"
+    "autoprefixer-stylus": "latest",
+    "axis": "latest",
+    "coffee-script": "latest",
+    "css-pipeline": "latest",
+    "jade": "latest",
+    "js-pipeline": "latest",
+    "jstransformer-marked": "latest",
+    "marked": "latest",
+    "roots": "latest",
+    "rupture": "latest",
+    "stylus": "latest"
   }
 }

@@ -1,0 +1,19 @@
+script(type='text/javascript').
+  var submitted=false;
+iframe#hidden_iframe(name='hidden_iframe', style='display:none;', onload="if(submitted) {window.location='http://localhost:9000/thanks';}")
+section#contact.main.style3.secondary
+  .content
+    header
+      h2 Tell us your IT Problem
+      p We are going to listening you and reach you as soon as possible.
+    .box
+      form(action='https://docs.google.com/forms/d/e/1FAIpQLSfav6Qwgd6bzvPb3scf8gB5c54gzacnt1yVZJ4NP3fl1tTv3A/formResponse', method='post', target='hidden_iframe', onsubmit='submitted=true;')
+        .field.half.first
+          input(type='text', name='entry.60973510', placeholder='Name', required='required')
+        .field.half
+          input(type='email', name='entry.1631382841', placeholder='Email', required='required')
+        .field
+          textarea(name='entry.1710700279', placeholder='Message', rows='6', required='required')
+        ul.actions
+          li
+            input(type='submit', value='Send Message')
