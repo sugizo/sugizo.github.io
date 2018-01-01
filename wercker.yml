@@ -6,5 +6,8 @@ build:
         name: install
         code: gem install jekyll bundler jekyll-minifier jekyll-sitemap
     - script:
+        name: doctor
+        code: bundle exec jekyll doctor
+    - script:
         name: build
         code: bundle exec jekyll build
