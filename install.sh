@@ -1,41 +1,32 @@
-#!/bin/sh
-
-start=$(date +%s)
-
 # Install Package
-mkdir -p ~/project/js/hexo
-cd ~/project/js/hexo
-#npm install hexo-cli
+mkdir -p ~/project/coffee/roots
+cd ~/project/coffee/roots
+npm list roots || npm install roots
 
-# Initalize Blog
-#./node_modules/.bin/hexo init stifix
+# New Site
+#node_modules/.bin/roots new stifix
 
 # install app
-rm -rf ~/project/js/hexo/stifix/*
-rsync -zavr ~/Cloud/MEGA/Git/hexo/stifix/ ~/project/js/hexo/stifix/
+mkdir -p ~/project/coffee/roots/stifix/
+rm -rf ~/project/coffee/roots/stifix/*
+rsync -avuzr ~/Cloud/MEGA/Git/roots/stifix/* ~/project/coffee/roots/stifix/
 
-# Install Blog
-cd stifix
+# Install Prerequisites
+cd ~/project/coffee/roots/stifix
 npm install
 
-# Create New Post
-#./node_modules/.bin/hexo new "post"
-
-# Run Server
-./node_modules/.bin/hexo server
+# Run App
+cd ~/project/coffee/roots/stifix
+../node_modules/.bin/roots watch
 #npm start
 
-# Access via Browser
-open http://localhost:4000
+# Check App on Browser
+#open http://localhost:1111
 
-# Generate Static Site
-./node_modules/.bin/hexo generate
-#npm generate
+# Compile App
+cd ~/project/coffee/roots/stifix
+../node_modules/.bin/roots compile
+#npm compile
 
-# check public folder change external js and css into internal (save) then concat and minify it
-
-end=$(date +%s)
-diff=$(( $end - $start ))
-
-echo Duration = $diff Seconds
-echo Finished at = `date +%Y-%m-%d\ %H:%M:%S`
+# Check generated files
+du -hsc ~/project/coffee/roots/stifix/public/

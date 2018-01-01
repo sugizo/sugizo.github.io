@@ -6,5 +6,5 @@ build:
         name: install
         code: npm install
     - script:
-        name: generate
-        code: npm run generate
+        name: compile
+        code: npm run compile

@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+  include _partials/resume-head
+  body
+    include _partials/resume-header
+
+    .row.main
+      .large-6.columns
+        include _partials/resume-objective
+        include _partials/resume-specialites
+        include _partials/resume-computer_skills
+        include _partials/resume-language_skills
+      .large-6.columns
+        include _partials/resume-recognitions
+        include _partials/resume-experience
+        include _partials/resume-education
+        include _partials/resume-hobbies_interest
+    
+    include _partials/resume-footer
+    include _partials/resume-scripts
