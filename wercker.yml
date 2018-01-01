@@ -1,10 +1,10 @@
-box: ruby
+box: node
 build:
   steps:
-    - bundle-install
+    #- npm-install
     - script:
-        name: doctor
-        code: bundle exec jekyll doctor
+        name: install
+        code: npm list harp || npm install
     - script:
         name: build
-        code: bundle exec jekyll build
+        code: harp compile
