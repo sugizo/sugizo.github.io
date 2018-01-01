@@ -8,7 +8,7 @@ build:
           apt install -y composer unzip
     - script:
         name: install jigsaw
-        code: composer install
+        code: composer show | grep jigsaw || composer require tightenco/jigsaw
     - script:
         name: build
         code: ./vendor/bin/jigsaw build
