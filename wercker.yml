@@ -1,9 +1,10 @@
 box: node
 build:
   steps:
+    #- npm-install
     - script:
         name: install
-        code: npm list hugo-cli || npm install -g hugo-cli
+        code: npm list harp || npm install -g harp
     - script:
-        name: generate
-        code: hugo
+        name: compile
+        code: harp compile
