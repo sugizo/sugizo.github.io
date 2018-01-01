@@ -1,9 +1,9 @@
-box: python:2.7
+box: ruby
 build:
   steps:
     - script:
         name: install
-        code: pip list | grep Cactus || easy_install cactus
+        code: gem install jekyll bundler jekyll-minifier jekyll-sitemap
     - script:
         name: build
-        code: cactus build
+        code: jekyll build
