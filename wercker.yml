@@ -1,10 +1,7 @@
 box: ruby
 build:
   steps:
-    #- bundle-install
-    - script:
-        name: install
-        code: gem install jekyll bundler jekyll-minifier jekyll-sitemap
+    - bundle-install
     - script:
         name: doctor
         code: bundle exec jekyll doctor
