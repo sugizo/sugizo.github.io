@@ -1,3 +1,3 @@
 [build]
-  command = "jigsaw build"
-  publish = "/build_local"
+  command = "harp compile"
+  publish = "/www"
