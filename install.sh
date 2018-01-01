@@ -1,33 +1,24 @@
-# Install Package
-#mkdir -p ~/project/js/harp
-#cd ~/project/js/harp
-#npm list harp || npm install harp
-mkdir -p ~/project/js/harp/stifix
-cd ~/project/js/harp/stifix
-npm list harp || npm install
+# Install Jigsaw via Composer
+mkdir -p ~/project/php/jigsaw/stifix
+cd ~/project/php/jigsaw/stifix
+composer show | grep jigsaw || composer require tightenco/jigsaw
+#composer install
 
-# Initialize Site
-#node_modules/.bin/harp init stifix
+# Initialize a new project in the current folder
+#./vendor/bin/jigsaw init
 
-# install app
-mkdir -p ~/project/js/harp/stifix/
-rm -rf ~/project/js/harp/stifix/*
-rsync -avuzr ~/Cloud/MEGA/Git/harp/stifix/* ~/project/js/harp/stifix/
+# Install app
+rm -rf ~/project/php/jigsaw/stifix/build_local/*
+rm -rf ~/project/php/jigsaw/stifix/source/*
+rsync -avzr ~/Cloud/MEGA/Git/jigsaw/stifix/* ~/project/php/jigsaw/stifix/
 
-# Run App
-#cd ~/project/js/harp/
-#./node_modules/.bin/harp server stifix
-cd ~/project/js/harp/stifix
-./node_modules/.bin/harp server 
-
-# Check App on Browser
-#http://localhost:9000
-
-# Compile App
-#cd ~/project/js/harp/
-#./node_modules/.bin/harp compile stifix
-cd ~/project/js/harp/stifix
-./node_modules/.bin/harp compile 
+# Build site
+cd ~/project/php/jigsaw/stifix
+./vendor/bin/jigsaw build
 
 # Check generated files
-du -hsc ~/project/js/harp/stifix/www/
+du -hsc ~/project/php/jigsaw/stifix/build_local/
+
+# Run Web Server
+cd ~/project/php/jigsaw/stifix/build_local
+python -m SimpleHTTPServer 8000

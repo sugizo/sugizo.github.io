@@ -1,10 +1,12 @@
-box: node
+box: php
 build:
   steps:
-    #- npm-install
     - script:
-        name: install
-        code: npm list harp || npm install harp
+        name: install composer
+        code: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
     - script:
-        name: compile
-        code: ./node_modules/.bin/harp compile
+        name: install jigsaw
+        code: composer install
+    - script:
+        name: build
+        code: ./vendor/bin/jigsaw build
