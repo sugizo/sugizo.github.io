@@ -1,12 +1,17 @@
-FROM ruby
+FROM composer
 
 #LABEL stifix
 
-RUN gem install jekyll bundler jekyll-minifier jekyll-sitemap 
-
 COPY . /site/
-WORKDIR /site
 
-EXPOSE 4000
+RUN apk update && \
+ apk --no-cache add python && \
+ cd /site && \
+ composer require tightenco/jigsaw && \
+ ./vendor/bin/jigsaw build
 
-CMD bundle exec jekyll serve --host 0.0.0.0
+EXPOSE 8000
+
+WORKDIR /site/build_local
+
+CMD python -m SimpleHTTPServer 8000
