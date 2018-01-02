@@ -1,0 +1,10 @@
+box: node
+build:
+  steps:
+    #- npm-install
+    - script:
+        name: install
+        code: npm install
+    - script:
+        name: compile
+        code: npm run compile
