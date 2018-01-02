@@ -1,0 +1,16 @@
+# Site settings
+title: Stifix
+email: stifan.kristi@stifix.com
+description: Stifix Company Profile Website
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+lang: en
+icon: "/favicon.ico"
+
+# Build settings
+markdown: kramdown
+
+plugins:
+  - jekyll-minifier
+  - jekyll-sitemap

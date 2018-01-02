@@ -1,32 +1,39 @@
-# Install Package
-mkdir -p ~/project/coffee/roots
-cd ~/project/coffee/roots
-npm list roots || npm install roots
+#!/bin/sh
 
-# New Site
-#node_modules/.bin/roots new stifix
+start=$(date +%s)
+
+# Install Package
+source ~/.rvm/scripts/rvm
+gem install jekyll bundler jekyll-minifier jekyll-sitemap
+
+# Create New Site
+mkdir -p ~/project/ruby/jekyll/stifix
+cd ~/project/ruby/jekyll/stifix
 
 # install app
-mkdir -p ~/project/coffee/roots/stifix/
-rm -rf ~/project/coffee/roots/stifix/*
-rsync -avuzr ~/Cloud/MEGA/Git/roots/stifix/* ~/project/coffee/roots/stifix/
+rm -f ~/project/ruby/jekyll/stifix/*
+rsync -zavr ~/Cloud/MEGA/Git/jekyll/stifix/ ~/project/ruby/jekyll/stifix/
 
-# Install Prerequisites
-cd ~/project/coffee/roots/stifix
-npm install
+# Serve Site
+source ~/.rvm/scripts/rvm
+cd ~/project/ruby/jekyll/stifix
+bundle exec jekyll serve --host 0.0.0.0
 
-# Run App
-cd ~/project/coffee/roots/stifix
-../node_modules/.bin/roots watch
-#npm start
+# Access Server via Browser
+#http://localhost:4000
 
-# Check App on Browser
-#open http://localhost:1111
-
-# Compile App
-cd ~/project/coffee/roots/stifix
-../node_modules/.bin/roots compile
-#npm compile
+# Generated Static Site is on _site folder
+source ~/.rvm/scripts/rvm
+cd ~/project/ruby/jekyll/stifix
+jekyll build
 
 # Check generated files
-du -hsc ~/project/coffee/roots/stifix/public/
+du -hsc ~/project/ruby/jekyll/stifix/_site/
+
+# check public folder change external js and css into internal (save) then concat and minify it
+
+end=$(date +%s)
+diff=$(( $end - $start ))
+
+echo Duration = $diff Seconds
+echo Finished at = `date +%Y-%m-%d\ %H:%M:%S`
