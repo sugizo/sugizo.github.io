@@ -2,16 +2,12 @@ FROM node
 
 #LABEL stifix
 
-RUN groupadd -r nodejs && \
- useradd -m -r -g nodejs nodejs
+COPY . /site/
+WORKDIR /site
 
-USER nodejs
+RUN npm list hexo-cli || npm install hexo-cli -g && \
+ npm install
 
-RUN npm list harp || npm install harp
+EXPOSE 4000
 
-COPY . /home/nodejs/site/
-WORKDIR /home/nodejs/site/
-
-EXPOSE 9000
-
-CMD /home/nodejs/site/node_modules/.bin/harp server site
+CMD hexo server

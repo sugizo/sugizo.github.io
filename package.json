@@ -3,11 +3,25 @@
   "version": "0.0.0",
   "description": "Stifix Company Profile Website",
   "scripts": {
-    "start": "harp server",
-    "compile": "harp compile"
+    "start": "hexo server",
+    "generate": "hexo generate"
   },
   "author": "Stifan Kristi",
+  "private": true,
+  "hexo": {
+    "version": "3.4.4"
+  },
   "dependencies": {
-    "harp": "latest"
+    "hexo": "latest",
+    "hexo-generator-archive": "latest",
+    "hexo-generator-category": "latest",
+    "hexo-generator-index": "latest",
+    "hexo-generator-tag": "latest",
+    "hexo-renderer-ejs": "latest",
+    "hexo-renderer-jade": "latest",
+    "hexo-renderer-marked": "latest",
+    "hexo-renderer-pug": "latest",
+    "hexo-renderer-stylus": "latest",
+    "hexo-server": "latest"
   }
 }
