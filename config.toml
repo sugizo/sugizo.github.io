@@ -1,0 +1,265 @@
+languageCode = "en-us"
+title = "Stifix"
+baseurl = "/"
+
+disableHugoGeneratorInject = true
+enableRobotsTXT = true
+#disableSitemap = false
+#disable404 = false
+disableKinds= []
+
+[blackfriday]
+extensions = ["hardLineBreak"]
+
+[params]
+
+  email = "stifan.kristi@stifix.com"
+
+  # index section
+  lang = "en"
+
+  # head section
+  content_language = "en"
+  charset = "utf-8"
+  viewport = "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  robots = "all"
+  name = "Stifan Kristi"
+  description = "Stifix Company Profile Website"
+  keywords = "Stifix, IT, IT Services, IT Solutions, IT Security, IT Monitoring, IT Development, IT Maintenance, IT Configuration, IT Support, IT Installation, IT Upgrade, IT Analyst, IT Development, IT Testing, System, System Services, System Solutions, Security System, Monitoring System, System Development, Maintenance System, Configuration System, System Support, Installation System, Upgrade System, System Analyst, System Development, Testing System, Linux, Unix, Windows, Virtualization, Cloud Computing, Mobile, Web Development"
+  google_site_verification = "ibaNUNECBXNjZi_FDdbSRZv9nIhCdZsJQ6n27Qfv1Tk"
+  og_title = "Stifix"
+  og_type = "website"
+  og_site_name = "Stifix"
+  og_description = "Stifix Company Profile Website"
+  og_url = "http://stifix.com"
+  og_image = "http://stifix.com"
+  fb_app_id = "stifixid"
+  twitter_card = "summary"
+  twitter_site = "@stifixid"
+  twitter_title = "Stifix"
+  twitter_description = "Stifix Company Profile Website"
+  twitter_url = "http://stifix.com"
+  twitter_image = "http://stifix.com"
+
+  # header Section
+  [params.header]
+
+    [[params.header_list]]
+      link = "#intro"
+      title = "Intro"
+
+    [[params.header_list]]
+      link = "#who_we_are"
+      title = "Who We Are"
+
+    [[params.header_list]]
+      link = "#what_we_do"
+      title = "What We Do"
+
+    [[params.header_list]]
+      link = "#why_us"
+      title = "Why Us"
+
+    [[params.header_list]]
+      link = "#contact"
+      title = "Contact"
+
+  # intro Section
+  [params.intro]
+    title = "Welcome"
+    description = "We provide comprehensive IT services and solutions to our clients based on their demands with effective, efficient and economic solutions."
+    buttontext = "More"
+    buttonlink = "#who_we_are"
+    picture = "intro.jpg"
+
+  # who_we_are section
+  [params.who_we_are]
+    title = "Who We Are"
+    description = "We set out to giving IT services and solutions since 2000, start to those around us, and we keep growing and fruitful to help more people by solving their IT problems."
+    buttontext = "Next"
+    buttonlink = "#what_we_do"
+    picture = "who_we_are.jpg"
+
+  # what_we_do section
+  [params.what_we_do]
+    title = "What We Do"
+    description = "Our services and solutions includes Installation, Configuration, Upgrades, Support, Training, Monitoring, Maintenance, and Development. We deliver according to your request."
+    buttontext = "Next"
+    buttonlink = "#why_us"
+    picture = "what_we_do.jpg"
+
+  # why_us section
+  [params.why_us]
+    title = "Why Us"
+    description = "Experienced in IT Industry for a long time and always up to date with the recent technology, and the most important thing, we care to you by solving your IT problems."
+    buttontext = "next"
+    buttonlink = "#footer"
+    picture = "why_us.jpg"
+
+  # contact section
+  [params.contact]
+    title = "Tell us your IT Problem"
+    description = "We are going to listening you and reach you as soon as possible."
+
+  # footer Section
+  [params.footer_list]
+    copyright = "© 2017 stifix. All rights reserved."
+
+    [[params.footer]]
+      title = "Facebook"
+      icon = "fa-facebook"
+      link = "https://facebook.com/stifixid"
+
+    [[params.footer]]
+      title = "Twitter"
+      icon = "fa-twitter"
+      link = "https://twitter.com/stifixid"
+
+    [[params.footer]]
+      title = "Google Plus"
+      icon = "fa-google-plus"
+      link = "https://plus.google.com/+Stifix"
+
+    [[params.footer]]
+      title = "Email"
+      icon = "fa-envelope"
+      link = "mailto:stifan.kristi@stifix.com"
+
+  # thanks
+  [params.thanks]
+    buttontext = "Back To Home Page"
+
+    [[params.thanks_list]]
+      icon = "fa-linux"
+
+    [[params.thanks_list]]
+      icon = "fa-apple"
+
+    [[params.thanks_list]]
+      icon = "fa-windows"
+
+    [[params.thanks_list]]
+      icon = "fa-mobile"
+
+    [[params.thanks_list]]
+      icon = "fa-laptop"
+
+    [[params.thanks_list]]
+      icon = "fa-desktop"
+
+    [[params.thanks_list]]
+      icon = "fa-server"
+
+    [[params.thanks_list]]
+      icon = "fa-cloud"
+
+  [params.resume_header]
+    name = "Stifan Kristi"
+    occupation = "IT Consultant"
+    address = "Kacang Polong 3 No 18"
+    city = "Jakarta"
+    country = "Indonesia"
+
+    [[params.resume_header_list_0]]
+      title = "stifan.kristi@stifix.com"
+      icon = "fi-mail"
+      link = "mailto:stifan.kristi@stifix.com"
+    [[params.resume_header_list_0]]
+      title = "+62818783118"
+      icon = "fi-mobile"
+      link = "tel:+62818783118"
+    [[params.resume_header_list_0]]
+      title = "+6285888607267"
+      icon = "fi-mobile"
+      link = "tel:+6285888607267"
+
+    [[params.resume_header_list_1]]
+      title = "stifix.com"
+      icon = "fi-web"
+      link = "https://stifix.com"
+
+  [params.objective]
+    title = "Objective"
+    description = "Aspire to contribute to solve the problem and make daily operational more effective, efficient, economic and sustainable, both individually and as part of a team"
+
+  [params.specialities]
+    title = "Specialities"
+
+    [[params.specialities_list]]
+      icon = "laptop"
+      title = "Various Hardware"
+      animation = "fadeInDown"
+    [[params.specialities_list]]
+      icon = "cloud"
+      title = "Various Environment"
+      animation = "fadeInUp"
+    [[params.specialities_list]]
+      icon = "social-windows"
+      title = "Various OS"
+      animation = "fadeInLeft"
+
+  [params.computer_skills]
+    title = "Computer Skills"
+    sub_title_0 = "1. Computer"
+    sub_title_1 = "2. Management"
+
+  [params.language_skills]
+    title = "Language Skills"
+    sub_title_0 = "Indonesian"
+    sub_level_0 = "Mother Language"
+    sub_title_1 = "English"
+    sub_level_1 = "Advanced Level"
+    sub_title_2 = "Japanese"
+    sub_level_2 = "Basic Level"
+
+  [params.recognitions]
+    title = "Recognitions"
+    position = "1-3"
+    recognitions = "Bina Nusantara Scholarship"
+    description = "Academic Performance in Bina Nusantara University"
+    place = "Bina Nusantara University, Indonesia"
+
+  [params.experience]
+    title = "Experience"
+    year = "4"
+    date = "From 2013 to now"
+    role = "IT Consultant"
+    company = "Stifix"
+
+  [params.education]
+    title = "Education"
+    date = "From 2002 to 2006"
+    topic = "Computerized Accounting"
+    school = "Bina Nusantara University, Indonesia"
+
+  [params.hobbies_interest]
+    title = "Hobbies & Interests"
+
+    [[params.hobbies_interest_list]]
+      title = "Photography"
+      icon = "fi-camera"
+    [[params.hobbies_interest_list]]
+      title = "Nature"
+      icon = "fi-mountains"
+    [[params.hobbies_interest_list]]
+      title = "Reading"
+      icon = "fi-book"
+    [[params.hobbies_interest_list]]
+      title = "Music"
+      icon = "fi-music"
+    [[params.hobbies_interest_list]]
+      title = "Travelling"
+      icon = "fi-trees"
+    [[params.hobbies_interest_list]]
+      title = "Pets"
+      icon = "fi-paw"
+    [[params.hobbies_interest_list]]
+      title = "Games"
+      icon = "fi-die-six"
+    [[params.hobbies_interest_list]]
+      title = "Theatre"
+      icon = "fi-ticket"
+
+  [params.resume_footer]
+    name = "Stifan Kristi"
+    link = "mailto:stifan.kristi@stifix.com"

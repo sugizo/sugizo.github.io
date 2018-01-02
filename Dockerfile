@@ -3,11 +3,10 @@ FROM node
 #LABEL stifix
 
 COPY . /site/
-WORKDIR /site
+WORKDIR /
 
-RUN npm list hexo-cli || npm install hexo-cli -g && \
- npm install
+RUN npm list hugo-cli || npm install hugo-cli -g
 
-EXPOSE 4000
+EXPOSE 1313
 
-CMD hexo server
+CMD cd site && hugo server --bind 0.0.0.0 -D
