@@ -1,12 +1,12 @@
-FROM node
+FROM ruby
 
 #LABEL stifix
 
+RUN gem install jekyll bundler jekyll-minifier jekyll-sitemap 
+
 COPY . /site/
-WORKDIR /
+WORKDIR /site
 
-RUN npm list hugo-cli || npm install hugo-cli -g
+EXPOSE 4000
 
-EXPOSE 1313
-
-CMD cd site && hugo server --bind 0.0.0.0 -D
+CMD bundle exec jekyll serve --host 0.0.0.0

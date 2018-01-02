@@ -1,9 +1,0 @@
-box: node
-build:
-  steps:
-    - script:
-        name: install
-        code: npm list hugo-cli || npm install -g hugo-cli
-    - script:
-        name: generate
-        code: hugo
