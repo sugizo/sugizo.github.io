@@ -2,7 +2,8 @@ FROM ruby
 
 #LABEL stifix
 
-RUN gem install jekyll bundler jekyll-minifier jekyll-sitemap 
+RUN apt install -y nodejs-legacy && \
+ gem install jekyll bundler jekyll-minifier jekyll-sitemap 
 
 COPY . /site/
 

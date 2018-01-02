@@ -1,0 +1,12 @@
+box: ruby
+build:
+  steps:
+    - script:
+        name: install prerequsites
+        code: apt install -y nodejs-legacy
+    - script:
+        name: install
+        code: gem install jekyll bundler jekyll-minifier jekyll-sitemap
+    - script:
+        name: build
+        code: jekyll build
