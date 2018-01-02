@@ -2,7 +2,8 @@ FROM ruby
 
 #LABEL stifix
 
-RUN apt install -y nodejs && \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
+ apt install -y nodejs && \
  gem install jekyll bundler jekyll-minifier jekyll-sitemap 
 
 COPY . /site/

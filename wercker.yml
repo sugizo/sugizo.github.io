@@ -2,6 +2,9 @@ box: ruby
 build:
   steps:
     - script:
+        name: add repository
+        code: curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    - script:
         name: install prerequsites
         code: apt install -y nodejs
     - script:
