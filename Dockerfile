@@ -9,7 +9,8 @@ USER nodejs
 
 COPY . /home/nodejs/site/
 
-RUN cd /home/nodejs/site && \
+RUN mkdir -p /home/nodejs/site && \
+ cd /home/nodejs/site && \
  npm install
 
 EXPOSE 1111
