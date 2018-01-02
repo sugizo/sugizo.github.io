@@ -2,7 +2,7 @@ FROM ruby
 
 #LABEL stifix
 
-RUN apt install -y nodejs-legacy && \
+RUN apt install -y nodejs && \
  gem install jekyll bundler jekyll-minifier jekyll-sitemap 
 
 COPY . /site/

@@ -3,7 +3,7 @@ build:
   steps:
     - script:
         name: install prerequsites
-        code: apt install -y nodejs-legacy
+        code: apt install -y nodejs
     - script:
         name: install
         code: gem install jekyll bundler jekyll-minifier jekyll-sitemap
