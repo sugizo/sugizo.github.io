@@ -2,17 +2,12 @@ FROM node
 
 #LABEL stifix
 
-RUN groupadd -r nodejs && \
- useradd -m -r -g nodejs nodejs
+COPY . /site/
 
-USER nodejs
+WORKDIR /site
 
-COPY . /home/nodejs/site/
-
-RUN mkdir -p /home/nodejs/site && \
- cd /home/nodejs/site && \
- npm install
+RUN npm install
 
 EXPOSE 1111
 
-CMD cd /home/nodejs/site/node_modules/.bin/roots watch
+CMD /site/node_modules/.bin/roots watch
