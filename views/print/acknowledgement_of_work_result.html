@@ -1,0 +1,52 @@
+{{employee = db(db.employee.auth_user == header.created_by).select().first() }}
+
+<h3 style="text-align: center;">
+	<span style="text-decoration: underline;">Acknowledgement of Work Result
+	</span>
+	<br />
+	<span style="font-size: 12px;">{{=header.acknowledgement_of_work_result_no}}
+	</span>
+</h3>
+<div style="text-align: right;">{{=employee.branch.city}}, {{=header.acknowledgement_of_work_result_date}}
+</div>
+<div>Name : {{=employee.first_name}} {{=employee.last_name}}</div>
+<div>Title : {{=employee.department.name}} {{=employee.role.name}}</div>
+<br />
+<div>Explained that :</div>
+<div>On {{=header.working_on}}, on behalf of {{=employee.branch.company.name}} as an IT Consultant, have done the following job at {{=header.customer.first_name}} {{=header.customer.last_name}} in {{=header.customer.address}}, {{=header.customer.zip_code}}, {{=header.customer.city}}. Detail of work can be described as following :
+</div>
+<ul>
+{{=XML(' '.join([LI(SPAN(phone) ).xml() for phone in header.detail_works]) ) }}
+</ul>
+<table width="100%">
+	<tbody>
+		<tr>
+			<td width="50%"><strong>Created By,</strong></td>
+			<td width="50%"><strong>Approved By,</strong></td>
+		</tr>
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td width="50%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td width="50%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td width="50%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td width="50%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%"><span style="text-decoration: underline;">{{=employee.first_name}} {{=employee.last_name}}</span></td>
+			<td width="50%"><span style="text-decoration: underline;">{{=header.customer.first_name}} {{=header.customer.last_name}}</span></td>
+		</tr>
+		<tr>
+			<td width="50%">{{=employee.department.name}} {{=employee.role.name}}</td>
+			<td width="50%">PT. ABC, Tbk</td>
+		</tr>
+	</tbody>
+</table>

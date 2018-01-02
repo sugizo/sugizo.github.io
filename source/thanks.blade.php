@@ -1,9 +1,0 @@
-@extends('_layouts.master')
-@section('head')
-@include('_partials.thanks-head')
-@endsection
-@section('body')
-@include('_partials.thanks-header')
-@include('_partials.thanks-content')
-@include('_partials.home-footer')
-@endsection

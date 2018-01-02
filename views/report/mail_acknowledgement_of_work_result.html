@@ -1,0 +1,32 @@
+{{header = db(db.acknowledgement_of_work_result.id == header_id).select().first() }}
+{{employee = db(db.employee.auth_user == header.created_by).select().first() }}
+
+Dear {{=header.customer.salutation}} {{=header.customer.first_name}} {{=header.customer.last_name}}, 
+%0D
+%0D
+Acknowledgement of Work Result No. {{=header.acknowledgement_of_work_result_no}} on {{=header.acknowledgement_of_work_result_date}}
+%0D
+%0D
+Thank you very much.
+%0D
+%0D
+Best Regards,
+%0D
+%0D
+{{=employee.first_name}} {{=employee.last_name}}
+%0D
+{{=employee.branch.address}}, {{=employee.branch.zip_code}}, 
+{{=employee.branch.city}}, {{=employee.branch.country}}
+%0D
+{{=', '.join(employee.branch.phone)}}
+%0D
+{{=', '.join(employee.branch.fax)}}
+%0D
+{{=', '.join(employee.branch.email)}}
+%0D
+{{=employee.branch.company.website}}
+%0D
+%0D
+Ref acknowledgement_of_work_result :
+%0D
+{{='http://%s/%s/print/acknowledgement_of_work_result/%s' % (request.env.http_host, request.application, header_id) }}
