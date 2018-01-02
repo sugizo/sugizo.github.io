@@ -1,14 +1,17 @@
-FROM ubuntu:latest
+FROM node
 
 #LABEL stifix
 
-COPY . /site/
-WORKDIR /
+RUN groupadd -r nodejs && \
+ useradd -m -r -g nodejs nodejs
 
-RUN apt update && \
- apt install -y npm nodejs-legacy && \
- npm list harp || npm install harp -g
+USER nodejs
+
+RUN npm list harp || npm install harp
+
+COPY . /home/nodejs/site/
+WORKDIR /home/nodejs/site/
 
 EXPOSE 9000
 
-CMD harp server site
+CMD /home/nodejs/site/node_modules/.bin/harp server site
