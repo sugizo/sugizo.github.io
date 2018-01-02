@@ -1,9 +1,0 @@
-box: python:2.7
-build:
-  steps:
-    - script:
-        name: install
-        code: pip list | grep Cactus || easy_install cactus
-    - script:
-        name: build
-        code: cactus build
