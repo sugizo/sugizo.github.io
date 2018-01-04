@@ -1,12 +1,17 @@
-FROM node
+FROM composer
 
 #LABEL stifix
 
 COPY . /site/
-WORKDIR /
 
-RUN npm list hugo-cli || npm install hugo-cli -g
+RUN apk update && \
+ apk --no-cache add python && \
+ cd /site && \
+ composer require tightenco/jigsaw && \
+ ./vendor/bin/jigsaw build
 
-EXPOSE 1313
+EXPOSE 8000
 
-CMD cd site && hugo server --bind 0.0.0.0 -D
+WORKDIR /site/build_local
+
+CMD python -m SimpleHTTPServer 8000
