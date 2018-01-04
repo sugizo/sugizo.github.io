@@ -2,12 +2,14 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "master"
   actions:
-  - action: "Execute: harp compile "
+  - action: "Execute: harp compile"
     type: "BUILD"
-    docker_image_name: "library/node"
-    docker_image_tag: "6"
+    docker_image_name: "library/ubuntu"
+    docker_image_tag: "16.04"
     execute_commands:
     - "harp compile"
     setup_commands:
+    - "apt update"
+    - "apt install -y npm nodejs-legacy"
     - "npm list harp || npm install harp -g"
     trigger_condition: "ALWAYS"
