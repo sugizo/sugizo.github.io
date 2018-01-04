@@ -2,13 +2,11 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "master"
   actions:
-  - action: "Execute: pip install -r requirements.txt"
+  - action: "Execute: hugo"
     type: "BUILD"
-    docker_image_name: "library/python"
-    docker_image_tag: "2.7"
+    docker_image_name: "library/node"
+    docker_image_tag: "6"
     execute_commands:
-    - "pip install -r requirements.txt"
-    - "cactus build"
-    cached_dirs:
-    - "/root/.cache/pip"
+    - "npm install"
+    - "npm run hugo"
     trigger_condition: "ALWAYS"

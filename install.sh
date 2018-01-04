@@ -1,34 +1,42 @@
-# Install Package on Virtual Environment
-mkdir ~/project
-cd ~/project
-virtualenv --no-site-packages python
-source python/bin/activate
-pip list | grep Cactus || easy_install cactus
+#!/bin/sh
 
-# Create Site
-#cd ~/project
-#source python/bin/activate
-#cactus create ~/project/python/cactus/stifix
+start=$(date +%s)
 
-# Install App
-rm -rf ~/project/python/cactus/stifix
-mkdir -p ~/project/python/cactus/stifix
-rsync -avzr ~/Cloud/MEGA/Git/cactus/stifix/0.1/* ~/project/python/cactus/stifix/
+# Install Package
+mkdir -p ~/project/go/hugo
+cd ~/project/go/hugo
+npm list hugo-cli || npm install hugo-cli
 
-# Serve Site
-cd ~/project
-source python/bin/activate
-cd ~/project/python/cactus/stifix
-cactus serve
+# Initalize Blog
+rm -rf ~/project/go/hugo/stifix
+mkdir -p ~/project/go/hugo/stifix
+#node_modules/.bin/hugo new site stifix
 
-# Access via Browser
-#http://localhost:8000
+# install app
+rm -rf ~/project/go/hugo/stifix/content/*
+rm -rf ~/project/go/hugo/stifix/layouts/*
+rm -rf ~/project/go/hugo/stifix/public/*
+rm -rf ~/project/go/hugo/stifix/static/*
+rsync -zavr ~/Cloud/MEGA/Git/hugo/stifix/ ~/project/go/hugo/stifix/
 
-# Build
-cd ~/project
-source python/bin/activate
-cd ~/project/python/cactus/stifix
-cactus build
+# Run Server
+cd ~/project/go/hugo/stifix
+../node_modules/.bin/hugo server --bind 0.0.0.0 -D
+
+# Access Server via Browser
+#http://localhost:1313
+
+# Generate Static Site Website on folder public
+cd ~/project/go/hugo/stifix
+../node_modules/.bin/hugo
 
 # Check generated files
-du -hsc ~/project/python/cactus/stifix/.build/
+du -hsc ~/project/go/hugo/stifix/public/
+
+# check public folder change external js and css into internal (save) then concat and minify it
+
+end=$(date +%s)
+diff=$(( $end - $start ))
+
+echo Duration = $diff Seconds
+echo Finished at = `date +%Y-%m-%d\ %H:%M:%S`
