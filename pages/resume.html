@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% include "includes/resume-head.html" %}
+{% endblock %}
+
+{% block body %}
+{% include "includes/resume-header.html" %}
+
+<div class="row main">
+<div class="large-6 columns">
+{% include "includes/resume-objective.html" %}
+{% include "includes/resume-specialites.html" %}
+{% include "includes/resume-computer_skills.html" %}
+{% include "includes/resume-language_skills.html" %}
+</div>
+<div class="large-6 columns">
+{% include "includes/resume-recognitions.html" %}
+{% include "includes/resume-experience.html" %}
+{% include "includes/resume-education.html" %}
+{% include "includes/resume-hobbies_interest.html" %}
+</div>
+</div>
+
+{% include "includes/resume-footer.html" %}
+{% include "includes/resume-scripts.html" %}
+
+{% endblock %}

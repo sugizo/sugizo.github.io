@@ -1,41 +1,34 @@
-#!/bin/sh
+# Install Package on Virtual Environment
+mkdir ~/project
+cd ~/project
+virtualenv --no-site-packages python
+source python/bin/activate
+pip list | grep Cactus || easy_install cactus
 
-start=$(date +%s)
+# Create Site
+#cd ~/project
+#source python/bin/activate
+#cactus create ~/project/python/cactus/stifix
 
-# Install Package
-mkdir -p ~/project/js/hexo
-cd ~/project/js/hexo
-#npm install hexo-cli
+# Install App
+rm -rf ~/project/python/cactus/stifix
+mkdir -p ~/project/python/cactus/stifix
+rsync -avzr ~/Cloud/MEGA/Git/cactus/stifix/0.1/* ~/project/python/cactus/stifix/
 
-# Initalize Blog
-#./node_modules/.bin/hexo init stifix
-
-# install app
-rm -rf ~/project/js/hexo/stifix/*
-rsync -zavr ~/Cloud/MEGA/Git/hexo/stifix/ ~/project/js/hexo/stifix/
-
-# Install Blog
-cd stifix
-npm install
-
-# Create New Post
-#./node_modules/.bin/hexo new "post"
-
-# Run Server
-./node_modules/.bin/hexo server
-#npm start
+# Serve Site
+cd ~/project
+source python/bin/activate
+cd ~/project/python/cactus/stifix
+cactus serve
 
 # Access via Browser
-open http://localhost:4000
+#http://localhost:8000
 
-# Generate Static Site
-./node_modules/.bin/hexo generate
-#npm generate
+# Build
+cd ~/project
+source python/bin/activate
+cd ~/project/python/cactus/stifix
+cactus build
 
-# check public folder change external js and css into internal (save) then concat and minify it
-
-end=$(date +%s)
-diff=$(( $end - $start ))
-
-echo Duration = $diff Seconds
-echo Finished at = `date +%Y-%m-%d\ %H:%M:%S`
+# Check generated files
+du -hsc ~/project/python/cactus/stifix/.build/
