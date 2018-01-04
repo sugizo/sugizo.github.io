@@ -1,12 +1,13 @@
-FROM python:2.7
+FROM node
 
 #LABEL stifix
-
-RUN pip install Cactus
-
-EXPOSE 8000
 
 COPY . /site/
 WORKDIR /site
 
-CMD cactus serve
+RUN npm list hexo-cli || npm install hexo-cli -g && \
+ npm install
+
+EXPOSE 4000
+
+CMD hexo server
