@@ -1,0 +1,23 @@
+<!-- content -->
+{% assign content = site.data.thanks.content %}
+<section class="main style3 secondary">
+	<div class="content container">
+		<header>
+			<h2>{{ content.title }}</h2>
+		</header>
+		<p>{{ content.description }}</p>
+		{% for list in content.list %}
+		<span class="fa-stack fa-3x">
+			<i class="fa fa-circle-thin fa-stack-2x"></i>
+			<i class="fa {{ list.icon }} fa-stack-1x"></i>
+		</span>
+		{% endfor %}
+		<div class="12u">
+			<ul class="actions">
+				<li>
+					<a href="/" class="button">{{ content.buttontext }}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
