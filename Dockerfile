@@ -1,18 +1,14 @@
-FROM ruby
+FROM ubuntu:latest
 
 #LABEL stifix
 
-RUN apt update && \
- apt install -y sudo curl && \
- curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
- apt update && \
- apt install -y nodejs && \
- gem install jekyll bundler jekyll-minifier jekyll-sitemap 
-
 COPY . /site/
+WORKDIR /
 
-WORKDIR /site
+RUN apt update && \
+ apt install -y npm nodejs-legacy && \
+ npm list harp || npm install harp -g
 
-EXPOSE 4000
+EXPOSE 9000
 
-CMD bundle exec jekyll serve --host 0.0.0.0
+CMD harp server site

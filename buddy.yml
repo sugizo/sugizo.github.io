@@ -2,17 +2,14 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "master"
   actions:
-  - action: "Execute: jekyll build"
+  - action: "Execute: harp compile"
     type: "BUILD"
-    docker_image_name: "library/ruby"
+    docker_image_name: "library/ubuntu"
     docker_image_tag: "latest"
     execute_commands:
-    - "gem install jekyll bundler jekyll-minifier jekyll-sitemap"
-    - "jekyll build"
+    - "harp compile"
     setup_commands:
     - "apt update"
-    - "apt install -y sudo curl"
-    - "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
-    - "apt update"
-    - "apt install -y nodejs"
+    - "apt install -y npm nodejs-legacy"
+    - "npm list harp || npm install harp -g"
     trigger_condition: "ALWAYS"
