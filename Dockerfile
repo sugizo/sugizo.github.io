@@ -1,17 +1,14 @@
-FROM composer
+FROM ubuntu:latest
 
 #LABEL stifix
 
 COPY . /site/
+WORKDIR /
 
-RUN apk update && \
- apk --no-cache add python && \
- cd /site && \
- composer require tightenco/jigsaw && \
- ./vendor/bin/jigsaw build
+RUN apt update && \
+ apt install -y npm nodejs-legacy && \
+ npm list harp || npm install harp -g
 
-EXPOSE 8000
+EXPOSE 9000
 
-WORKDIR /site/build_local
-
-CMD python -m SimpleHTTPServer 8000
+CMD harp server site

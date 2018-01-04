@@ -1,9 +1,12 @@
-box: composer
+box: ubuntu
 build:
   steps:
     - script:
         name: install
-        code: composer install
+        code: |
+          apt update
+          apt install -y npm nodejs-legacy
+          npm list harp || npm install harp -g
     - script:
         name: compile
-        code: ./vendor/bin/jigsaw build
+        code: harp compile
