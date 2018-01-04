@@ -2,12 +2,12 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "master"
   actions:
-  - action: "Execute: harp compile "
+  - action: "Execute: roots compile"
     type: "BUILD"
     docker_image_name: "library/node"
     docker_image_tag: "6"
     execute_commands:
-    - "npm compile "
+    - "npm run compile"
     setup_commands:
     - "npm install"
     trigger_condition: "ALWAYS"

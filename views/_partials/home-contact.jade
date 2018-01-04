@@ -1,0 +1,21 @@
+section#contact.main.style3.secondary
+  .content
+    header
+      h2 Tell us your IT Problem
+      p We are going to listening you and reach you as soon as possible.
+    .box
+      form#formaction(method='post')
+        .field.half.first
+          input(type='text', name='name', placeholder='Name', required='required')
+        .field.half
+          input(type='email', name='email', placeholder='Email', required='required')
+        .field
+          textarea(name='message', placeholder='Message', rows='6', required='required')
+          input(type='text', name='_gotcha', style='display:none')
+          input(type='hidden', name='_next', value='thanks')
+        ul.actions
+          li
+            input(type='submit', value='Send Message')
+script.
+  var contactform = document.getElementById('formaction');
+  contactform.setAttribute('action', '//formspree.io/' + 'stifan.kristi@stifix.com');
