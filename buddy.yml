@@ -1,0 +1,13 @@
+- pipeline: "build"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "master"
+  actions:
+  - action: "Execute: pip install -r requirements.txt"
+    type: "BUILD"
+    docker_image_name: "library/python"
+    docker_image_tag: "2.7"
+    execute_commands:
+    - "pip install -r requirements.txt"
+    cached_dirs:
+    - "/root/.cache/pip"
+    trigger_condition: "ALWAYS"
