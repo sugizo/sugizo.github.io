@@ -1,3 +1,0 @@
-[build]
-  command = "harp compile"
-  publish = "/www"
