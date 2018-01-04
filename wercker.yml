@@ -1,16 +1,9 @@
-box: ruby
+box: python:2.7
 build:
   steps:
     - script:
         name: install
-        code: apt install -y sudo curl
-        code: |
-          apt update
-          apt install -y sudo curl
-          curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-          apt update
-          apt install -y nodejs
-          gem install jekyll bundler jekyll-minifier jekyll-sitemap
+        code: pip list | grep Cactus || easy_install cactus
     - script:
         name: build
-        code: jekyll build
+        code: cactus build

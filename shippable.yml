@@ -1,0 +1,9 @@
+language: python
+
+python:
+  - 2.7
+
+build:
+  ci:
+    - shippable_retry pip install -r requirements.txt
+    - cactus build
