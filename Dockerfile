@@ -1,12 +1,12 @@
-FROM python:2.7
+FROM node
 
 #LABEL stifix
 
-RUN pip install Cactus
-
-EXPOSE 8000
-
 COPY . /site/
-WORKDIR /site
+WORKDIR /
 
-CMD cactus serve
+RUN npm list hugo-cli || npm install hugo-cli -g
+
+EXPOSE 1313
+
+CMD cd site && hugo server --bind 0.0.0.0 -D

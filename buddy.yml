@@ -2,13 +2,12 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "master"
   actions:
-  - action: "Execute: pip install -r requirements.txt"
+  - action: "Execute: hugo -c $WORKING_DIR"
     type: "BUILD"
-    docker_image_name: "library/python"
-    docker_image_tag: "2.7"
+    docker_image_name: "library/golang"
+    docker_image_tag: "1.8"
     execute_commands:
-    - "pip install -r requirements.txt"
-    - "nosetests"
-    cached_dirs:
-    - "/root/.cache/pip"
+    - "hugo -c $WORKING_DIR"
+    setup_commands:
+    - "go get -v github.com/gohugoio/hugo"
     trigger_condition: "ALWAYS"
