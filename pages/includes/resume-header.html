@@ -1,0 +1,36 @@
+<div id=header>
+<div class=row>
+<div class="large-3 columns">
+<h2>{{ resume.header.name }}</h2>
+<h6 class=light>{{ resume.header.occupation }}</h6></div>
+<div class="large-3 columns">
+<div class=row>
+<div class="small-4 columns light2 italic"><b>Address:</b></div>
+<div class="small-8 columns border-left light2 ">
+<ul class=no-bullet>
+<li>{{ resume.header.address }}</li>
+<li>{{ resume.header.city }}</li>
+<li>{{ resume.header.country }}</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="large-3 columns">
+<div class=row>
+<div class="small-4 columns light2 italic"><b>Contact:</b></div>
+<div class="small-8 columns border-left light2">
+<ul class=no-bullet>
+<li><i class="{{ resume.header.list.0.icon }}"><a href="{{ resume.header.list.0.link }}">{{ resume.header.list.0.title }}</a></i></li>
+<li><i class="{{ resume.header.list.1.icon }}"><a href="{{ resume.header.list.1.link }}">{{ resume.header.list.1.title }}</a></i></li>
+<li><i class="{{ resume.header.list.2.icon }}"><a href="{{ resume.header.list.2.link }}">{{ resume.header.list.2.title }}</a></i></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="large-2 columns text-right italic website">
+<ul class=no-bullet>
+<li><i class="{{ resume.header.list.3.icon }}"><a href="{{ resume.header.list.3.link }}"> {{ resume.header.list.3.title }}</a></i></li>
+</ul>
+</div>
+</div>
+</div>

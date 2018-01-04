@@ -1,10 +1,9 @@
-box: node
+box: python:2.7
 build:
   steps:
-    #- npm-install
     - script:
         name: install
-        code: npm install
+        code: pip list | grep Cactus || easy_install cactus
     - script:
-        name: generate
-        code: npm run generate
+        name: build
+        code: cactus build

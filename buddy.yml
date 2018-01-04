@@ -2,13 +2,13 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "master"
   actions:
-  - action: "Execute: hexo generate"
+  - action: "Execute: pip install -r requirements.txt"
     type: "BUILD"
-    docker_image_name: "library/node"
-    docker_image_tag: "6"
+    docker_image_name: "library/python"
+    docker_image_tag: "2.7"
     execute_commands:
-    - "npm install"
-    - "hexo generate"
-    setup_commands:
-    - "npm install hexo-cli -g"
+    - "pip install -r requirements.txt"
+    - "cactus build"
+    cached_dirs:
+    - "/root/.cache/pip"
     trigger_condition: "ALWAYS"
