@@ -1,0 +1,7 @@
+<% if (page.path.indexOf('resume') > -1) { %>
+<%- partial('resume') %>
+<% } else if (page.path.indexOf('thanks') > -1) { %>
+<%- partial('thanks') %>
+<% } else { %>
+<%- partial('index') %>
+<% } %>

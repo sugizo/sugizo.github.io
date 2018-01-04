@@ -1,9 +1,10 @@
-language: python
+language: node_js
 
-python:
-  - 2.7
+node_js:
+  - 7.0.0
 
 build:
+  cache: true
   ci:
-    - shippable_retry pip install -r requirements.txt
-    - cactus build
+    - shippable_retry npm install
+    - hexo generate
