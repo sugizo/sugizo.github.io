@@ -1,12 +1,16 @@
-box: ubuntu
+box: ruby
 build:
   steps:
     - script:
         name: install
+        code: apt install -y sudo curl
         code: |
           apt update
-          apt install -y npm nodejs-legacy
-          npm list harp || npm install harp -g
+          apt install -y sudo curl
+          curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+          apt update
+          apt install -y nodejs
+          gem install jekyll bundler jekyll-minifier jekyll-sitemap
     - script:
-        name: compile
-        code: harp compile
+        name: build
+        code: jekyll build
