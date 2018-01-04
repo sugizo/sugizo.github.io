@@ -7,7 +7,6 @@
     docker_image_name: "library/node"
     docker_image_tag: "6"
     execute_commands:
-    - "npm test"
     - "harp compile "
     setup_commands:
     - "npm install"
