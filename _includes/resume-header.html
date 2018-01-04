@@ -1,0 +1,48 @@
+{% assign header = site.data.resume.header %}
+<div id=header>
+	<div class=row>
+		<div class="large-3 columns">
+			<h2>{{ header.name }}</h2>
+			<h6 class=light>{{ header.occupation }}</h6>
+		</div>
+		<div class="large-3 columns">
+			<div class=row>
+			<div class="small-4 columns light2 italic"><b>Address:</b></div>
+				<div class="small-8 columns border-left light2 ">
+					<ul class=no-bullet>
+						<li>{{ header.address }}</li>
+						<li>{{ header.city }}</li>
+						<li>{{ header.country }}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 columns">
+			<div class=row>
+				<div class="small-4 columns light2 italic"><b>Contact:</b></div>
+				<div class="small-8 columns border-left light2">
+					<ul class=no-bullet>
+						{% for list in header.list_0 %}
+						<li>
+							<i class="{{ list.icon }}">
+								<a href="{{ list.link }}">{{ list.title }}</a>
+							</i>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="large-2 columns text-right italic website">
+			<ul class=no-bullet>
+				{% for list in header.list_1 %}
+				<li>
+					<i class="{{ list.icon }}">
+						<a href="{{ list.link }}">{{ list.title }}</a>
+					</i>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

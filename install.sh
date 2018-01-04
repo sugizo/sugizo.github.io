@@ -1,34 +1,39 @@
-# Install Package on Virtual Environment
-mkdir ~/project
-cd ~/project
-virtualenv --no-site-packages python
-source python/bin/activate
-pip list | grep Cactus || easy_install cactus
+#!/bin/sh
 
-# Create Site
-#cd ~/project
-#source python/bin/activate
-#cactus create ~/project/python/cactus/stifix
+start=$(date +%s)
 
-# Install App
-rm -rf ~/project/python/cactus/stifix
-mkdir -p ~/project/python/cactus/stifix
-rsync -avzr ~/Cloud/MEGA/Git/cactus/stifix/0.1/* ~/project/python/cactus/stifix/
+# Install Package
+source ~/.rvm/scripts/rvm
+gem install jekyll bundler jekyll-minifier jekyll-sitemap
+
+# Create New Site
+mkdir -p ~/project/ruby/jekyll/stifix
+cd ~/project/ruby/jekyll/stifix
+
+# install app
+rm -f ~/project/ruby/jekyll/stifix/*
+rsync -zavr ~/Cloud/MEGA/Git/jekyll/stifix/ ~/project/ruby/jekyll/stifix/
 
 # Serve Site
-cd ~/project
-source python/bin/activate
-cd ~/project/python/cactus/stifix
-cactus serve
+source ~/.rvm/scripts/rvm
+cd ~/project/ruby/jekyll/stifix
+bundle exec jekyll serve --host 0.0.0.0
 
-# Access via Browser
-#http://localhost:8000
+# Access Server via Browser
+#http://localhost:4000
 
-# Build
-cd ~/project
-source python/bin/activate
-cd ~/project/python/cactus/stifix
-cactus build
+# Generated Static Site is on _site folder
+source ~/.rvm/scripts/rvm
+cd ~/project/ruby/jekyll/stifix
+jekyll build
 
 # Check generated files
-du -hsc ~/project/python/cactus/stifix/.build/
+du -hsc ~/project/ruby/jekyll/stifix/_site/
+
+# check public folder change external js and css into internal (save) then concat and minify it
+
+end=$(date +%s)
+diff=$(( $end - $start ))
+
+echo Duration = $diff Seconds
+echo Finished at = `date +%Y-%m-%d\ %H:%M:%S`
