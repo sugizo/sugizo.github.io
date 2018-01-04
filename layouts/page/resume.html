@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<!--[if IE 9]><html class="lt-ie10" lang="en"><![endif]-->
+<html class=no-js lang="{{ .Site.Params.lang }}">
+{{ partial "resume-head.html" . }}
+<body>
+{{ partial "resume-header.html" . }}
+
+<div class="row main">
+    <div class="large-6 columns">
+        {{ partial "resume-objective.html" . }}
+        {{ partial "resume-specialities.html" . }}
+        {{ partial "resume-computer_skills.html" . }}
+        {{ partial "resume-language_skills.html" . }}
+    </div>        
+    <div class="large-6 columns">
+        {{ partial "resume-recognitions.html" . }}
+        {{ partial "resume-experience.html" . }}
+        {{ partial "resume-education.html" . }}
+        {{ partial "resume-hobbies_interest.html" . }}
+    </div>
+</div>
+
+{{ partial "resume-footer.html" . }}
+{{ partial "resume-scripts.html" . }}
+</body>
+</html>

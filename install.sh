@@ -1,33 +1,42 @@
-# Install Package
-#mkdir -p ~/project/js/harp
-#cd ~/project/js/harp
-#npm list harp || npm install harp
-mkdir -p ~/project/js/harp/stifix
-cd ~/project/js/harp/stifix
-npm list harp || npm install
+#!/bin/sh
 
-# Initialize Site
-#node_modules/.bin/harp init stifix
+start=$(date +%s)
+
+# Install Package
+mkdir -p ~/project/go/hugo
+cd ~/project/go/hugo
+npm list hugo-cli || npm install hugo-cli
+
+# Initalize Blog
+rm -rf ~/project/go/hugo/stifix
+mkdir -p ~/project/go/hugo/stifix
+#node_modules/.bin/hugo new site stifix
 
 # install app
-mkdir -p ~/project/js/harp/stifix/
-rm -rf ~/project/js/harp/stifix/*
-rsync -avuzr ~/Cloud/MEGA/Git/harp/stifix/* ~/project/js/harp/stifix/
+rm -rf ~/project/go/hugo/stifix/content/*
+rm -rf ~/project/go/hugo/stifix/layouts/*
+rm -rf ~/project/go/hugo/stifix/public/*
+rm -rf ~/project/go/hugo/stifix/static/*
+rsync -zavr ~/Cloud/MEGA/Git/hugo/stifix/ ~/project/go/hugo/stifix/
 
-# Run App
-#cd ~/project/js/harp/
-#./node_modules/.bin/harp server stifix
-cd ~/project/js/harp/stifix
-./node_modules/.bin/harp server 
+# Run Server
+cd ~/project/go/hugo/stifix
+../node_modules/.bin/hugo server --bind 0.0.0.0 -D
 
-# Check App on Browser
-#http://localhost:9000
+# Access Server via Browser
+#http://localhost:1313
 
-# Compile App
-#cd ~/project/js/harp/
-#./node_modules/.bin/harp compile stifix
-cd ~/project/js/harp/stifix
-./node_modules/.bin/harp compile 
+# Generate Static Site Website on folder public
+cd ~/project/go/hugo/stifix
+../node_modules/.bin/hugo
 
 # Check generated files
-du -hsc ~/project/js/harp/stifix/www/
+du -hsc ~/project/go/hugo/stifix/public/
+
+# check public folder change external js and css into internal (save) then concat and minify it
+
+end=$(date +%s)
+diff=$(( $end - $start ))
+
+echo Duration = $diff Seconds
+echo Finished at = `date +%Y-%m-%d\ %H:%M:%S`

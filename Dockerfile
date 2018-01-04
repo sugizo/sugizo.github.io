@@ -1,14 +1,12 @@
-FROM ubuntu:latest
+FROM node
 
 #LABEL stifix
 
 COPY . /site/
 WORKDIR /
 
-RUN apt update && \
- apt install -y npm nodejs-legacy && \
- npm list harp || npm install harp -g
+RUN npm list hugo-cli || npm install hugo-cli -g
 
-EXPOSE 9000
+EXPOSE 1313
 
-CMD harp server site
+CMD cd site && hugo server --bind 0.0.0.0 -D
