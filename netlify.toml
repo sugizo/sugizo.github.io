@@ -1,0 +1,3 @@
+[build]
+  command = "./vendor/bin/jigsaw build"
+  publish = "/build_local"

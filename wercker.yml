@@ -1,0 +1,9 @@
+box: composer
+build:
+  steps:
+    - script:
+        name: install
+        code: composer install
+    - script:
+        name: compile
+        code: ./vendor/bin/jigsaw build
