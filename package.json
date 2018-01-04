@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "description": "Stifix Company Profile Website",
   "scripts": {
-    "start": "hugo server --bind 0.0.0.0 -D",
-    "hugo": "hugo"
+    "start": "harp server",
+    "compile": "harp compile"
   },
   "author": "Stifan Kristi",
   "dependencies": {
-    "hugo-cli": "latest"
+    "harp": "latest"
   }
 }

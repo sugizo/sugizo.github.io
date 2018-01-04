@@ -1,9 +1,12 @@
-box: node
+box: ubuntu
 build:
   steps:
     - script:
         name: install
-        code: npm list hugo-cli || npm install -g hugo-cli
+        code: |
+          apt update
+          apt install -y npm nodejs-legacy
+          npm list harp || npm install harp -g
     - script:
-        name: generate
-        code: hugo
+        name: compile
+        code: harp compile
