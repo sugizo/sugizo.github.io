@@ -3,11 +3,21 @@
   "version": "0.0.0",
   "description": "Stifix Company Profile Website",
   "scripts": {
-    "start": "hugo server --bind 0.0.0.0 -D",
-    "hugo": "hugo"
+    "start": "roots watch",
+    "compile": "roots compile"
   },
   "author": "Stifan Kristi",
   "dependencies": {
-    "hugo-cli": "latest"
+    "autoprefixer-stylus": "latest",
+    "axis": "latest",
+    "coffee-script": "latest",
+    "css-pipeline": "latest",
+    "jade": "latest",
+    "js-pipeline": "latest",
+    "jstransformer-marked": "latest",
+    "marked": "latest",
+    "roots": "latest",
+    "rupture": "latest",
+    "stylus": "latest"
   }
 }

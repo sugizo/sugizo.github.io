@@ -3,10 +3,11 @@ FROM node
 #LABEL stifix
 
 COPY . /site/
-WORKDIR /
 
-RUN npm list hugo-cli || npm install hugo-cli -g
+WORKDIR /site
 
-EXPOSE 1313
+RUN npm install
 
-CMD cd site && hugo server --bind 0.0.0.0 -D
+EXPOSE 1111
+
+CMD /site/node_modules/.bin/roots watch

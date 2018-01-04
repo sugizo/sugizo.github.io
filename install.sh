@@ -1,42 +1,32 @@
-#!/bin/sh
-
-start=$(date +%s)
-
 # Install Package
-mkdir -p ~/project/go/hugo
-cd ~/project/go/hugo
-npm list hugo-cli || npm install hugo-cli
+mkdir -p ~/project/coffee/roots
+cd ~/project/coffee/roots
+npm list roots || npm install roots
 
-# Initalize Blog
-rm -rf ~/project/go/hugo/stifix
-mkdir -p ~/project/go/hugo/stifix
-#node_modules/.bin/hugo new site stifix
+# New Site
+#node_modules/.bin/roots new stifix
 
 # install app
-rm -rf ~/project/go/hugo/stifix/content/*
-rm -rf ~/project/go/hugo/stifix/layouts/*
-rm -rf ~/project/go/hugo/stifix/public/*
-rm -rf ~/project/go/hugo/stifix/static/*
-rsync -zavr ~/Cloud/MEGA/Git/hugo/stifix/ ~/project/go/hugo/stifix/
+mkdir -p ~/project/coffee/roots/stifix/
+rm -rf ~/project/coffee/roots/stifix/*
+rsync -avuzr ~/Cloud/MEGA/Git/roots/stifix/* ~/project/coffee/roots/stifix/
 
-# Run Server
-cd ~/project/go/hugo/stifix
-../node_modules/.bin/hugo server --bind 0.0.0.0 -D
+# Install Prerequisites
+cd ~/project/coffee/roots/stifix
+npm install
 
-# Access Server via Browser
-#http://localhost:1313
+# Run App
+cd ~/project/coffee/roots/stifix
+../node_modules/.bin/roots watch
+#npm start
 
-# Generate Static Site Website on folder public
-cd ~/project/go/hugo/stifix
-../node_modules/.bin/hugo
+# Check App on Browser
+#open http://localhost:1111
+
+# Compile App
+cd ~/project/coffee/roots/stifix
+../node_modules/.bin/roots compile
+#npm compile
 
 # Check generated files
-du -hsc ~/project/go/hugo/stifix/public/
-
-# check public folder change external js and css into internal (save) then concat and minify it
-
-end=$(date +%s)
-diff=$(( $end - $start ))
-
-echo Duration = $diff Seconds
-echo Finished at = `date +%Y-%m-%d\ %H:%M:%S`
+du -hsc ~/project/coffee/roots/stifix/public/

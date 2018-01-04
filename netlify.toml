@@ -1,3 +1,3 @@
 [build]
-  command = "hugo"
+  command = "roots compile"
   publish = "/public"
