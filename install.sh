@@ -1,33 +1,39 @@
-# Install Package
-#mkdir -p ~/project/js/harp
-#cd ~/project/js/harp
-#npm list harp || npm install harp
-mkdir -p ~/project/js/harp/stifix
-cd ~/project/js/harp/stifix
-npm list harp || npm install
+#!/bin/sh
 
-# Initialize Site
-#node_modules/.bin/harp init stifix
+start=$(date +%s)
+
+# Install Package
+source ~/.rvm/scripts/rvm
+gem install jekyll bundler jekyll-minifier jekyll-sitemap
+
+# Create New Site
+mkdir -p ~/project/ruby/jekyll/stifix
+cd ~/project/ruby/jekyll/stifix
 
 # install app
-mkdir -p ~/project/js/harp/stifix/
-rm -rf ~/project/js/harp/stifix/*
-rsync -avuzr ~/Cloud/MEGA/Git/harp/stifix/* ~/project/js/harp/stifix/
+rm -f ~/project/ruby/jekyll/stifix/*
+rsync -zavr ~/Cloud/MEGA/Git/jekyll/stifix/ ~/project/ruby/jekyll/stifix/
 
-# Run App
-#cd ~/project/js/harp/
-#./node_modules/.bin/harp server stifix
-cd ~/project/js/harp/stifix
-./node_modules/.bin/harp server 
+# Serve Site
+source ~/.rvm/scripts/rvm
+cd ~/project/ruby/jekyll/stifix
+bundle exec jekyll serve --host 0.0.0.0
 
-# Check App on Browser
-#http://localhost:9000
+# Access Server via Browser
+#http://localhost:4000
 
-# Compile App
-#cd ~/project/js/harp/
-#./node_modules/.bin/harp compile stifix
-cd ~/project/js/harp/stifix
-./node_modules/.bin/harp compile 
+# Generated Static Site is on _site folder
+source ~/.rvm/scripts/rvm
+cd ~/project/ruby/jekyll/stifix
+jekyll build
 
 # Check generated files
-du -hsc ~/project/js/harp/stifix/www/
+du -hsc ~/project/ruby/jekyll/stifix/_site/
+
+# check public folder change external js and css into internal (save) then concat and minify it
+
+end=$(date +%s)
+diff=$(( $end - $start ))
+
+echo Duration = $diff Seconds
+echo Finished at = `date +%Y-%m-%d\ %H:%M:%S`
