@@ -1,24 +1,34 @@
-# Install Jigsaw via Composer
-mkdir -p ~/project/php/jigsaw/stifix
-cd ~/project/php/jigsaw/stifix
-composer show | grep jigsaw || composer require tightenco/jigsaw
-#composer install
+# Install Package on Virtual Environment
+mkdir ~/project
+cd ~/project
+virtualenv --no-site-packages python
+source python/bin/activate
+pip list | grep Cactus || easy_install cactus
 
-# Initialize a new project in the current folder
-#./vendor/bin/jigsaw init
+# Create Site
+#cd ~/project
+#source python/bin/activate
+#cactus create ~/project/python/cactus/stifix
 
-# Install app
-rm -rf ~/project/php/jigsaw/stifix/build_local/*
-rm -rf ~/project/php/jigsaw/stifix/source/*
-rsync -avzr ~/Cloud/MEGA/Git/jigsaw/stifix/* ~/project/php/jigsaw/stifix/
+# Install App
+rm -rf ~/project/python/cactus/stifix
+mkdir -p ~/project/python/cactus/stifix
+rsync -avzr ~/Cloud/MEGA/Git/cactus/stifix/0.1/* ~/project/python/cactus/stifix/
 
-# Build site
-cd ~/project/php/jigsaw/stifix
-./vendor/bin/jigsaw build
+# Serve Site
+cd ~/project
+source python/bin/activate
+cd ~/project/python/cactus/stifix
+cactus serve
+
+# Access via Browser
+#http://localhost:8000
+
+# Build
+cd ~/project
+source python/bin/activate
+cd ~/project/python/cactus/stifix
+cactus build
 
 # Check generated files
-du -hsc ~/project/php/jigsaw/stifix/build_local/
-
-# Run Web Server
-cd ~/project/php/jigsaw/stifix/build_local
-python -m SimpleHTTPServer 8000
+du -hsc ~/project/python/cactus/stifix/.build/

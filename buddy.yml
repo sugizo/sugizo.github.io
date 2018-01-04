@@ -2,14 +2,13 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "master"
   actions:
-  - action: "Execute: phpunit"
+  - action: "Execute: pip install -r requirements.txt"
     type: "BUILD"
-    docker_image_name: "library/php"
-    docker_image_tag: "5.6"
+    docker_image_name: "library/python"
+    docker_image_tag: "2.7"
     execute_commands:
-    - "composer install"
-    - "./vendor/bin/jigsaw build"
-    setup_commands:
-    - "apt-get update && apt-get install -y git zip"
-    - "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
+    - "pip install -r requirements.txt"
+    - "cactus build"
+    cached_dirs:
+    - "/root/.cache/pip"
     trigger_condition: "ALWAYS"
