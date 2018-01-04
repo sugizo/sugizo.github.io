@@ -8,11 +8,8 @@
     docker_image_tag: "5.6"
     execute_commands:
     - "composer install"
-    - "phpunit"
     - "./vendor/bin/jigsaw build"
     setup_commands:
     - "apt-get update && apt-get install -y git zip"
-    - "curl -L https://phar.phpunit.de/phpunit.phar -o /usr/local/bin/phpunit"
-    - "chmod +x /usr/local/bin/phpunit"
     - "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
     trigger_condition: "ALWAYS"
