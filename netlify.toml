@@ -1,3 +1,0 @@
-[build]
-  command = "roots compile"
-  publish = "/public"

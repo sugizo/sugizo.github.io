@@ -1,10 +1,10 @@
-language: node_js
+language: php
 
-node_js:
-  - 7.0.0
+php:
+  - 5.6
 
 build:
   cache: true
   ci:
-    - shippable_retry npm install
-    - npm run compile
+    - shippable_retry composer install
+    - ./vendor/bin/jigsaw build

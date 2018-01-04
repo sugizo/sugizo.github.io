@@ -1,32 +1,24 @@
-# Install Package
-mkdir -p ~/project/coffee/roots
-cd ~/project/coffee/roots
-npm list roots || npm install roots
+# Install Jigsaw via Composer
+mkdir -p ~/project/php/jigsaw/stifix
+cd ~/project/php/jigsaw/stifix
+composer show | grep jigsaw || composer require tightenco/jigsaw
+#composer install
 
-# New Site
-#node_modules/.bin/roots new stifix
+# Initialize a new project in the current folder
+#./vendor/bin/jigsaw init
 
-# install app
-mkdir -p ~/project/coffee/roots/stifix/
-rm -rf ~/project/coffee/roots/stifix/*
-rsync -avuzr ~/Cloud/MEGA/Git/roots/stifix/* ~/project/coffee/roots/stifix/
+# Install app
+rm -rf ~/project/php/jigsaw/stifix/build_local/*
+rm -rf ~/project/php/jigsaw/stifix/source/*
+rsync -avzr ~/Cloud/MEGA/Git/jigsaw/stifix/* ~/project/php/jigsaw/stifix/
 
-# Install Prerequisites
-cd ~/project/coffee/roots/stifix
-npm install
-
-# Run App
-cd ~/project/coffee/roots/stifix
-../node_modules/.bin/roots watch
-#npm start
-
-# Check App on Browser
-#open http://localhost:1111
-
-# Compile App
-cd ~/project/coffee/roots/stifix
-../node_modules/.bin/roots compile
-#npm compile
+# Build site
+cd ~/project/php/jigsaw/stifix
+./vendor/bin/jigsaw build
 
 # Check generated files
-du -hsc ~/project/coffee/roots/stifix/public/
+du -hsc ~/project/php/jigsaw/stifix/build_local/
+
+# Run Web Server
+cd ~/project/php/jigsaw/stifix/build_local
+python -m SimpleHTTPServer 8000
