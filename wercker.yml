@@ -1,10 +1,12 @@
-box: node
+box: ubuntu
 build:
   steps:
-    #- npm-install
     - script:
         name: install
-        code: npm install
+        code: |
+          apt update
+          apt install -y npm nodejs-legacy
+          npm list harp || npm install harp -g
     - script:
         name: compile
-        code: npm run compile
+        code: harp compile

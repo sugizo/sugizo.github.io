@@ -1,32 +1,33 @@
 # Install Package
-mkdir -p ~/project/coffee/roots
-cd ~/project/coffee/roots
-npm list roots || npm install roots
+#mkdir -p ~/project/js/harp
+#cd ~/project/js/harp
+#npm list harp || npm install harp
+mkdir -p ~/project/js/harp/stifix
+cd ~/project/js/harp/stifix
+npm list harp || npm install
 
-# New Site
-#node_modules/.bin/roots new stifix
+# Initialize Site
+#node_modules/.bin/harp init stifix
 
 # install app
-mkdir -p ~/project/coffee/roots/stifix/
-rm -rf ~/project/coffee/roots/stifix/*
-rsync -avuzr ~/Cloud/MEGA/Git/roots/stifix/* ~/project/coffee/roots/stifix/
-
-# Install Prerequisites
-cd ~/project/coffee/roots/stifix
-npm install
+mkdir -p ~/project/js/harp/stifix/
+rm -rf ~/project/js/harp/stifix/*
+rsync -avuzr ~/Cloud/MEGA/Git/harp/stifix/* ~/project/js/harp/stifix/
 
 # Run App
-cd ~/project/coffee/roots/stifix
-../node_modules/.bin/roots watch
-#npm start
+#cd ~/project/js/harp/
+#./node_modules/.bin/harp server stifix
+cd ~/project/js/harp/stifix
+./node_modules/.bin/harp server 
 
 # Check App on Browser
-#open http://localhost:1111
+#http://localhost:9000
 
 # Compile App
-cd ~/project/coffee/roots/stifix
-../node_modules/.bin/roots compile
-#npm compile
+#cd ~/project/js/harp/
+#./node_modules/.bin/harp compile stifix
+cd ~/project/js/harp/stifix
+./node_modules/.bin/harp compile 
 
 # Check generated files
-du -hsc ~/project/coffee/roots/stifix/public/
+du -hsc ~/project/js/harp/stifix/www/

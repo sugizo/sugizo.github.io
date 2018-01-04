@@ -1,13 +1,14 @@
-FROM node
+FROM ubuntu:latest
 
 #LABEL stifix
 
 COPY . /site/
+WORKDIR /
 
-WORKDIR /site
+RUN apt update && \
+ apt install -y npm nodejs-legacy && \
+ npm list harp || npm install harp -g
 
-RUN npm install
+EXPOSE 9000
 
-EXPOSE 1111
-
-CMD /site/node_modules/.bin/roots watch
+CMD harp server site
