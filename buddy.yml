@@ -2,12 +2,13 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "master"
   actions:
-  - action: "Execute: jekyll build"
+  - action: "Execute: harp compile "
     type: "BUILD"
-    working_directory: "/srv/jekyll"
-    docker_image_name: "jekyll/jekyll"
-    docker_image_tag: "3.4"
+    docker_image_name: "library/node"
+    docker_image_tag: "6"
     execute_commands:
-    - "chown jekyll:jekyll $WORKING_DIR"
-    - "jekyll build"
+    - "npm test"
+    - "harp compile "
+    setup_commands:
+    - "npm install"
     trigger_condition: "ALWAYS"
