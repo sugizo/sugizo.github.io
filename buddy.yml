@@ -7,9 +7,8 @@
     docker_image_name: "library/ubuntu"
     docker_image_tag: "latest"
     execute_commands:
-    - "harp compile"
-    setup_commands:
     - "apt update"
     - "apt install -y npm nodejs-legacy"
     - "npm list harp || npm install harp -g"
+    - "harp compile"
     trigger_condition: "ALWAYS"
