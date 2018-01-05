@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+
+{{=form}}
+
+<!-- modal employee -->
+<div class="modal fade" id="modal_employee" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">{{=DIV(T('Employee') ) }}</h4>
+			</div>
+			<div class="modal-body">
+				{{=LOAD('administration', 'modal_employee.load', ajax = True) }}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,49 @@
+{{employee = db(db.employee.auth_user == header.created_by).select().first() }}
+
+<h3 style="text-align: center;">
+	<span style="text-decoration: underline;">Official Travel
+	</span>
+	<br />
+	<span style="font-size: 12px;">{{=header.official_travel_no}}
+	</span>
+</h3>
+<div style="text-align: right;">{{=employee.branch.city}}, {{=header.official_travel_date}}
+</div>
+<div>Dear Sir or Madam</div>
+<br />
+<div>I want to inform that on {{=header.date_of_depart}} till  {{=header.date_of_return}}, I will be out of the Office to {{=header.purpose}}.
+</div>
+<div>Thank you very much for your concern.</div>
+<br />
+<table width="100%">
+	<tbody>
+		<tr>
+			<td width="50%"><strong>Created By,</strong></td>
+			<td width="50%"><strong>Approved By,</strong></td>
+		</tr>
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td width="50%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td width="50%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td width="50%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%">&nbsp;</td>
+			<td width="50%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%"><span style="text-decoration: underline;">{{=employee.first_name}} {{=employee.last_name}}</span></td>
+			<td width="50%"><span style="text-decoration: underline;">{{=header.employee.first_name}} {{=header.employee.last_name}}</span></td>
+		</tr>
+		<tr>
+			<td width="50%">{{=employee.department.name}} {{=employee.role.name}}</td>
+			<td width="50%">{{=header.employee.department.name}} {{=header.employee.role.name}}</td>
+		</tr>
+	</tbody>
+</table>
