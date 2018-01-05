@@ -1,0 +1,13 @@
+{
+  "name": "stifix",
+  "version": "0.0.0",
+  "description": "Stifix Company Profile Website",
+  "scripts": {
+    "start": "harp server",
+    "compile": "harp compile"
+  },
+  "author": "Stifan Kristi",
+  "dependencies": {
+    "harp": "latest"
+  }
+}

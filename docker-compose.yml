@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  jekyll:
+  harp:
     build: .
     ports:
-      - "4000:4000"
+      - "9000:9000"
