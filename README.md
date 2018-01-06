@@ -8,7 +8,7 @@
 # Add, commit, and push your changes
 	git add --all
 	git commit -m "Initial Commit"
-	git push -u origin master
+	git push -uf origin master
 
 # Add, commit, and push your changes
 	git add --all
