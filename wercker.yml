@@ -1,0 +1,21 @@
+box: composer
+build:
+  steps:
+    - script:
+        name: install
+        code: composer install
+    - script:
+        name: compile
+        code: ./vendor/bin/jigsaw build
+    - script:
+        name: deploy
+        code: |
+          rm -rf sugizo.github.io
+          git clone https://sugizo:${GITHUB_PASSWORD}@github.com/sugizo/sugizo.github.io.git
+          git config --global user.email 'steve.van.christie@gmail.com'
+          git config --global user.name 'sugizo'
+          cp -r build_local/* sugizo.github.io/
+          cd sugizo.github.io
+          git add --all
+          git commit -m 'From Wercker'
+          git push -u origin master
