@@ -1,0 +1,13 @@
+{
+  "name": "stifix",
+  "version": "0.0.0",
+  "description": "Stifix Company Profile Website",
+  "scripts": {
+    "start": "wintersmith preview",
+    "build": "wintersmith build"
+  },
+  "author": "Stifan Kristi",
+  "dependencies": {
+    "wintersmith": "latest"
+  }
+}

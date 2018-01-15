@@ -1,0 +1,3 @@
+[build]
+  command = "wintersmith build"
+  publish = "/build"

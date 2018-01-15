@@ -1,0 +1,9 @@
+header#header
+  h1
+    img(alt='Stifix', src='images/favicon.png', title='Stifix', width='14px')
+    |  Stifix
+  nav
+    ul
+      each header in locals.home.header
+        li
+          a(href='#{ header.link }') #{ header.title }
