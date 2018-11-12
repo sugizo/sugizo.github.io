@@ -1,4 +1,7 @@
 # Clone the repository
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/sugizo/sugizo.github.io.svg)](https://greenkeeper.io/)
+
 	cd ~/git/github
 	git clone https://github.com/sugizo/sugizo.github.io
 
