@@ -1,73 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Awards | Stifan Kristi</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="content-language" content="en" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="robots" content="all" />
-        <meta name="description" content="Stifix Company Profile Website" />
-        <meta
-            name="keywords"
-            content="Stifix, IT, IT Services, IT Solutions, IT Security, IT Monitoring, IT Development, IT Maintenance, IT Configuration, IT Support, IT Installation, IT Upgrade, IT Analyst, IT Development, IT Testing, System, System Services, System Solutions, Security System, Monitoring System, System Development, Maintenance System, Configuration System, System Support, Installation System, Upgrade System, System Analyst, System Development, Testing System, Linux, Unix, Windows, Virtualization, Cloud Computing, Mobile, Web Development"
-        />
-        <meta name="author" content="Stifan Kristi" />
-        <meta name="google-site-verification" content="ibaNUNECBXNjZi_FDdbSRZv9nIhCdZsJQ6n27Qfv1Tk" />
-        <meta name="og:title" property="og:title" content="Stifix" />
-        <meta name="og:type" property="og:type" content="website" />
-        <meta name="og:site_name" property="og:site_name" content="Stifix" />
-        <meta name="og:description" property="og:description" content="Stifix Company Profile Website" />
-        <meta name="og:url" property="og:url" content="https://sugizo.github.io" />
-        <meta name="og:image" property="og:image" content="https://sugizo.github.io" />
-        <meta name="fb:app_id" property="fb:app_id" content="stifixid" />
-        <meta name="twitter:card" property="twitter:card" content="summary" />
-        <meta name="twitter:site" property="twitter:site" content="@stifixid" />
-        <meta name="twitter:title" property="twitter:title" content="Stifix" />
-        <meta name="twitter:description" property="twitter:description" content="Stifix Company Profile Website" />
-        <meta name="twitter:url" property="twitter:url" content="https://sugizo.github.io" />
-        <meta name="twitter:image" property="twitter:image" content="https://sugizo.github.io" />
-        <link rel="icon" type="image/png" href="static/images/favicon.png" />
-        <link rel="stylesheet" href="static/css/style.css">
-    </head>
+<html lang="en">
+<head>
+  <title>Awards | Stifan Kristi</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="static/images/favicon.png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
 <body>
 
-<div class="container">
+<div id="demo" class="carousel slide" data-ride="carousel">
 
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-
-  <div class="row">
-    <div class="column">
-      <img class="demo cursor" src="static/images/scholarship_2004_2005.jpg" style="width:100%" onclick="currentSlide(1)" alt="Bina Nusantara - Scholarship 2004 - 2005" title="Bina Nusantara - Scholarship 2004 - 2005">
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="static/images/scholarship_2004_2005.jpg" alt="Bina Nusantara - Scholarship 2004 - 2005" title="Bina Nusantara - Scholarship 2004 - 2005">
     </div>
-    <div class="column">
-      <img class="demo cursor" src="static/images/scholarship_2003_2004.jpg" style="width:100%" onclick="currentSlide(2)" alt="Bina Nusantara - Scholarship 2003 - 2004" title="Bina Nusantara - Scholarship 2003 - 2004">
+    <div class="carousel-item">
+      <img src="static/images/scholarship_2003_2004.jpg" alt="Bina Nusantara - Scholarship 2003 - 2004" title="Bina Nusantara - Scholarship 2003 - 2004">
     </div>
-    <div class="column">
-      <img class="demo cursor" src="static/images/web_program_design_competition.jpg" style="width:100%" onclick="currentSlide(3)" alt="Bina Nusantara - Web Program Design Competition" title="Bina Nusantara - Web Program Design Competition">
+    <div class="carousel-item">
+      <img src="static/images/web_program_design_competition.jpg" alt="Bina Nusantara - Web Program Design Competition" title="Bina Nusantara - Web Program Design Competition">
     </div>
   </div>
-
-  <div class="caption-container">
-    <p id="caption"></p>
-  </div>
-
-  <div class="mySlides">
-    <img src="static/images/scholarship_2004_2005.jpg" style="width:100%" alt="Bina Nusantara - Scholarship 2004 - 2005" title="Bina Nusantara - Scholarship 2004 - 2005">
-  </div>
-
-  <div class="mySlides">
-    <img src="static/images/scholarship_2003_2004.jpg" style="width:100%" alt="Bina Nusantara - Scholarship 2003 - 2004" title="Bina Nusantara - Scholarship 2003 - 2004">
-  </div>
-
-  <div class="mySlides">
-    <img src="static/images/web_program_design_competition.jpg" style="width:100%" alt="Bina Nusantara - Web Program Design Competition" title="Bina Nusantara - Web Program Design Competition">
-  </div>
-
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+  
 </div>
 
-<script src="static/js/script.js"></script> 
-    
 </body>
 </html>
