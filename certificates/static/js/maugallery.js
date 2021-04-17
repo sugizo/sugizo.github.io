@@ -117,6 +117,9 @@
       $(`#${lightboxId}`)
         .find(".lightboxImage")
         .attr("src", element.attr("src"));
+      $(`#${lightboxId}`)
+        .find(".lightboxImage")
+        .attr("title", element.attr("title"));
       $(`#${lightboxId}`).modal("toggle");
     },
     prevImage() {
@@ -157,6 +160,7 @@
         imagesCollection[index] ||
         imagesCollection[imagesCollection.length - 1];
       $(".lightboxImage").attr("src", $(next).attr("src"));
+      $(".lightboxImage").attr("title", $(next).attr("title"));
     },
     nextImage() {
       let activeImage = null;
@@ -194,6 +198,7 @@
       });
       next = imagesCollection[index] || imagesCollection[0];
       $(".lightboxImage").attr("src", $(next).attr("src"));
+      $(".lightboxImage").attr("title", $(next).attr("title"));
     },
     createLightBox(gallery, lightboxId, navigation) {
       gallery.append(`<div class="modal fade" id="${
@@ -204,13 +209,13 @@
                         <div class="modal-body">
                             ${
                               navigation
-                                ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;">prev</div>'
+                                ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;">< Prev</div>'
                                 : '<span style="display:none;" />'
                             }
                             <img class="lightboxImage img-fluid" />
                             ${
                               navigation
-                                ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">next</div>'
+                                ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">Next ></div>'
                                 : '<span style="display:none;" />'
                             }
                         </div>
