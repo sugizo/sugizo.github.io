@@ -1,8 +1,8 @@
 # Link
-https://sugizo.github.io/
-https://sugizo.github.io/awards
-https://sugizo.github.io/certificates
-https://sugizo.github.io/resume
+https://sugizo.github.io/  
+https://sugizo.github.io/awards/  
+https://sugizo.github.io/certificates/  
+https://sugizo.github.io/resume/  
 
 # Clone the repository
 	cd ~/git/github
