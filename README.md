@@ -1,8 +1,8 @@
 # Link
-[Web] (https://sugizo.github.io/){target="_blank"}  
-[Awards] (https://sugizo.github.io/awards/){target="_blank"}  
-[Certificates] (https://sugizo.github.io/certificates/){target="_blank"}  
-[Resume] (https://sugizo.github.io/resume/){target="_blank"}  
+[Web](https://sugizo.github.io/){:target="_blank"}  
+[Awards](https://sugizo.github.io/awards/){:target="_blank"}  
+[Certificates](https://sugizo.github.io/certificates/){:target="_blank"}  
+[Resume](https://sugizo.github.io/resume/){:target="_blank"}  
 
 # Clone the repository
 	cd ~/git/github
