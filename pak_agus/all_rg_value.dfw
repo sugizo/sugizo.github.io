@@ -1,0 +1,16 @@
+[0]
+classID=10213
+subCId=1
+Rect=458;134;450;500;
+Font=Arial;74;8;90;92;
+FontColour=255;255;255;
+BGColour=0;0;0;
+AlwasOnTop=0
+UseCaption=1
+stockcode=ZP
+enddate=2021-11-15
+day=0
+mode=Value
+type=All
+board=RG
+cw=56;50;51;53;29;57;50;51;53;
